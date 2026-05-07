@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Waitlist — Hyperius Holdings LLC</title>
+<meta name="description" content="Be first in line. Join the Hyperius Holdings waitlist to get early access to investment opportunities, venture updates, and exclusive partner insights.">
+<meta property="og:title" content="Join the Waitlist — Hyperius Holdings LLC">
+<meta property="og:description" content="Get early access to Hyperius Holdings investment opportunities and venture updates.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../styles.css">
+<style>
+/* ===== WAITLIST PAGE STYLES ===== */
+
+/* HERO - WAITLIST */
+.waitlist-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 100px;
+}
+.waitlist-hero .container {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+.waitlist-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(46,117,182,0.12) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 50%),
+              var(--gradient);
+  z-index: 0;
+}
+/* Animated grain overlay */
+.waitlist-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Animated orbiting shapes */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+.orb-1 {
+  width: 400px; height: 400px;
+  background: var(--accent);
+  top: -100px; right: -100px;
+  animation: orb-drift-1 12s ease-in-out infinite;
+}
+.orb-2 {
+  width: 300px; height: 300px;
+  background: var(--gold);
+  bottom: -80px; left: -80px;
+  animation: orb-drift-2 15s ease-in-out infinite;
+}
+.orb-3 {
+  width: 200px; height: 200px;
+  background: var(--accent-light);
+  top: 40%; left: 45%;
+  animation: orb-drift-3 10s ease-in-out infinite;
+}
+@keyframes orb-drift-1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-40px,60px)} }
+@keyframes orb-drift-2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(50px,-40px)} }
+@keyframes orb-drift-3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-30px,20px) scale(1.15)} }
+
+/* LEFT COPY */
+.waitlist-copy .section-label { margin-bottom: 12px; }
+.waitlist-copy h1 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #fff 0%, #B8D4F0 60%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.waitlist-copy .subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+
+/* TRUST BADGES */
+.trust-badges {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  font-size: .82rem;
+  color: var(--text-muted);
+  transition: .3s;
+}
+.trust-badge:hover {
+  border-color: rgba(46,117,182,0.25);
+  background: rgba(46,117,182,0.06);
+}
+.trust-badge .tb-icon {
+  font-size: 1.2rem;
+}
+
+/* RIGHT: FORM */
+.waitlist-form-wrap {
+  position: relative;
+  z-index: 1;
+}
+.wl-form-card {
+  background: rgba(27,42,74,0.7);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 48px 40px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+  position: relative;
+  overflow: hidden;
+}
+.wl-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--gold), var(--accent-light));
+}
+.wl-form-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+  color: #fff;
+}
+.wl-form-card .form-sub {
+  color: var(--text-muted);
+  font-size: .88rem;
+  margin-bottom: 28px;
+}
+.wl-form-card .form-group {
+  margin-bottom: 18px;
+}
+.wl-form-card label {
+  display: block;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.wl-form-card input, .wl-form-card select, .wl-form-card textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  color: #fff;
+  font-size: .95rem;
+  font-family: inherit;
+  transition: .3s;
+}
+.wl-form-card input:focus, .wl-form-card select:focus, .wl-form-card textarea:focus {
+  outline: 0;
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px rgba(46,117,182,0.15);
+  background: rgba(255,255,255,0.06);
+}
+.wl-form-card input::placeholder { color: rgba(255,255,255,0.2); }
+.wl-form-card textarea { min-height: 80px; resize: vertical; }
+.wl-form-card select option { background: var(--navy); color: #fff; }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* SUBMIT */
+.wl-submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(46,117,182,0.4);
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+.wl-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(46,117,182,0.5);
+}
+.wl-submit:active { transform: translateY(0); }
+.wl-submit.success {
+  background: linear-gradient(135deg, #22C55E, #4ADE80);
+  box-shadow: 0 4px 24px rgba(34,197,94,0.4);
+}
+
+/* Privacy note */
+.wl-privacy {
+  text-align: center;
+  margin-top: 14px;
+  font-size: .78rem;
+  color: var(--text-muted);
+}
+
+/* SOCIAL PROOF */
+.social-proof {
+  padding: 80px 0;
+  background: linear-gradient(180deg, var(--dark), #0F1E33);
+  position: relative;
+}
+.social-proof .container { text-align: center; }
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.proof-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 36px 24px;
+  text-align: center;
+  transition: .4s;
+}
+.proof-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(46,117,182,0.3);
+  box-shadow: var(--shadow);
+}
+.proof-icon { font-size: 2.4rem; margin-bottom: 16px; }
+.proof-value {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
+}
+.proof-label { font-size: .82rem; color: var(--text-muted); }
+
+/* WHAT YOU GET */
+.benefits {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #0F1E33, var(--dark));
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.benefit-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 36px;
+  transition: all .4s;
+  position: relative;
+  overflow: hidden;
+}
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  opacity: 0;
+  transition: .4s;
+}
+.benefit-card:hover { transform: translateY(-4px); border-color: rgba(46,117,182,0.3); box-shadow: var(--shadow); }
+.benefit-card:hover::before { opacity: 1; }
+.benefit-icon { font-size: 2rem; margin-bottom: 16px; }
+.benefit-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.benefit-card p { color: var(--text-muted); font-size: .88rem; line-height: 1.6; }
+
+/* VENTURES TICKER */
+.ventures-strip {
+  padding: 60px 0;
+  background: rgba(46,117,182,0.04);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  overflow: hidden;
+}
+.ventures-strip .container { text-align: center; }
+.ticker-wrap {
+  margin-top: 32px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  transition: .3s;
+}
+.ticker-item:hover {
+  border-color: rgba(46,117,182,0.3);
+  background: rgba(46,117,182,0.08);
+}
+.ticker-item .ti-icon { font-size: 1.4rem; }
+.ticker-item .ti-name { font-weight: 700; font-size: .9rem; }
+.ticker-item .ti-category { font-size: .72rem; color: var(--text-muted); }
+
+/* FINAL CTA */
+.final-cta {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--dark), #0D1B2A);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(46,117,182,0.08) 0%, transparent 60%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.final-cta h2 { margin-bottom: 12px; }
+.final-cta .section-desc {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 36px;
+}
+.final-cta-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px) {
+  .waitlist-hero .container { grid-template-columns: 1fr; gap: 48px; }
+  .proof-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width:768px) {
+  .waitlist-hero { padding-top: 80px; }
+  .waitlist-hero .container { gap: 32px; }
+  .form-row { grid-template-columns: 1fr; }
+  .proof-grid, .benefits-grid { grid-template-columns: 1fr; }
+  .trust-badges { flex-direction: column; }
+  .wl-form-card { padding: 32px 24px; }
+  .ticker-wrap { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <div class="container">
+    <a href="/" class="logo"><img src="../assets/images/logo.png" alt="Hyperius Holdings"></a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">☰</button>
+    <ul id="navMenu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/investors/">For Investors</a></li>
+      <li><a href="/invest/">Tao Bin Opportunity</a></li>
+      <li><a href="#waitlist-form" class="nav-cta">Join Waitlist</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="waitlist-hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="container">
+    <div class="waitlist-copy">
+      <p class="section-label">Hyperius Holdings LLC</p>
+      <h1>Get Early Access to<br>What's Next</h1>
+      <p class="subtitle">Join the Hyperius Holdings waitlist to receive priority access to investment opportunities, venture launches, and exclusive partner insights — before anyone else.</p>
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <span class="tb-icon">🔒</span>
+          <span>Private & Confidential</span>
+        </div>
+        <div class="trust-badge">
+          <span class="tb-icon">⚡</span>
+          <span>Priority Access</span>
+        </div>
+        <div class="trust-badge">
+          <span class="tb-icon">📊</span>
+          <span>Investor Updates</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- WAITLIST FORM -->
+    <div class="waitlist-form-wrap" id="waitlist-form">
+      <div class="wl-form-card">
+        <h2>Join the Waitlist</h2>
+        <p class="form-sub">Be first in line for new opportunities and venture updates.</p>
+        <form id="waitlistForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="hidden" name="_subject" value="New Waitlist Signup — Hyperius Holdings">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="wlFirstName">First Name *</label>
+              <input type="text" id="wlFirstName" name="firstName" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label for="wlLastName">Last Name *</label>
+              <input type="text" id="wlLastName" name="lastName" placeholder="Doe" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="wlEmail">Email Address *</label>
+            <input type="email" id="wlEmail" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="wlPhone">Phone (optional)</label>
+            <input type="tel" id="wlPhone" name="phone" placeholder="+1 (555) 000-0000">
+          </div>
+          <div class="form-group">
+            <label for="wlInterest">I'm interested in...</label>
+            <select id="wlInterest" name="interest">
+              <option value="">Select your interest</option>
+              <option value="investing">Investing in Hyperius Ventures</option>
+              <option value="partnership">Partnership / Collaboration</option>
+              <option value="taobin">Tao Bin US Expansion</option>
+              <option value="general">General Updates & News</option>
+              <option value="vendor">Becoming a Vendor Partner</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="wlMessage">Anything else? (optional)</label>
+            <textarea id="wlMessage" name="message" placeholder="Tell us what you're looking for..."></textarea>
+          </div>
+          <button type="submit" class="wl-submit" id="wlSubmitBtn">Join the Waitlist →</button>
+          <p class="wl-privacy">🔒 We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="social-proof">
+  <div class="container">
+    <p class="section-label">By the Numbers</p>
+    <h2>Why People Are Paying Attention</h2>
+    <div class="proof-grid fade-in">
+      <div class="proof-card">
+        <div class="proof-icon">🚀</div>
+        <div class="proof-value"><span class="counter" data-target="6">0</span>+</div>
+        <div class="proof-label">Active Ventures</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-icon">🌍</div>
+        <div class="proof-value"><span class="counter" data-target="3">0</span></div>
+        <div class="proof-label">Industries</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-icon">📈</div>
+        <div class="proof-value">$6B+</div>
+        <div class="proof-label">Target Market Size</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-icon">🏗️</div>
+        <div class="proof-value">Global</div>
+        <div class="proof-label">Operations Reach</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="benefits">
+  <div class="container">
+    <p class="section-label" style="text-align:center;">Waitlist Benefits</p>
+    <h2 style="text-align:center;">What You'll Get</h2>
+    <p class="section-desc" style="text-align:center;margin-left:auto;margin-right:auto;">Joining the waitlist gives you a front-row seat to everything Hyperius is building.</p>
+    <div class="benefits-grid fade-in">
+      <div class="benefit-card">
+        <div class="benefit-icon">🎯</div>
+        <h3>Priority Deal Access</h3>
+        <p>Be the first to see new investment opportunities before they open to the public. Early access means better terms.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📬</div>
+        <h3>Venture Updates</h3>
+        <p>Monthly updates on Hyperius ventures — traction, milestones, new launches, and strategic moves.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🤝</div>
+        <h3>Partner Network</h3>
+        <p>Connect with founders, operators, and investors in the Hyperius ecosystem. Exclusive community events.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📊</div>
+        <h3>Financial Reports</h3>
+        <p>Access quarterly performance reports, unit economics breakdowns, and market analysis from our ventures.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🎪</div>
+        <h3>Launch Invitations</h3>
+        <p>Get invited to product launches, demo days, and private events for our portfolio companies.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔑</div>
+        <h3>Founder Access</h3>
+        <p>Direct line to the founding team for Q&A sessions, strategy calls, and one-on-one conversations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENTURES STRIP -->
+<section class="ventures-strip">
+  <div class="container">
+    <p class="section-label">Our Portfolio</p>
+    <h2>Ventures We're Building</h2>
+    <div class="ticker-wrap fade-in">
+      <div class="ticker-item">
+        <span class="ti-icon">🤖</span>
+        <div>
+          <div class="ti-name">Talos AI Solutions</div>
+          <div class="ti-category">Artificial Intelligence</div>
+        </div>
+      </div>
+      <div class="ticker-item">
+        <span class="ti-icon">☕</span>
+        <div>
+          <div class="ti-name">Tao Bin US</div>
+          <div class="ti-category">Smart Infrastructure</div>
+        </div>
+      </div>
+      <div class="ticker-item">
+        <span class="ti-icon">👟</span>
+        <div>
+          <div class="ti-name">DRIPTEIN</div>
+          <div class="ti-category">Consumer Brand</div>
+        </div>
+      </div>
+      <div class="ticker-item">
+        <span class="ti-icon">🍗</span>
+        <div>
+          <div class="ti-name">CHICKS</div>
+          <div class="ti-category">Food & Beverage</div>
+        </div>
+      </div>
+      <div class="ticker-item">
+        <span class="ti-icon">📱</span>
+        <div>
+          <div class="ti-name">TYT</div>
+          <div class="ti-category">Consumer Brand</div>
+        </div>
+      </div>
+      <div class="ticker-item">
+        <span class="ti-icon">🏃</span>
+        <div>
+          <div class="ti-name">BeeFIT</div>
+          <div class="ti-category">Health & Fitness</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <p class="section-label">Don't Miss Out</p>
+    <h2>Spots Are Limited</h2>
+    <p class="section-desc">Our seed round is actively raising. Waitlist members get first look at investment terms, financial projections, and partnership opportunities.</p>
+    <div class="final-cta-btns">
+      <a href="#waitlist-form" class="btn-primary">Join the Waitlist →</a>
+      <a href="/investors/" class="btn-secondary">Investor Information</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="../assets/images/logo.png" alt="Hyperius Holdings"></div>
+        <p class="footer-desc">A multi-venture holding company building across technology, AI, consumer brands, and smart infrastructure.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/investors/">For Investors</a></li>
+          <li><a href="/invest/">Tao Bin Opportunity</a></li>
+          <li><a href="/waitlist/">Waitlist</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:hello@hyperiusholdings.com">hello@hyperiusholdings.com</a></li>
+          <li><a href="mailto:invest@hyperiusholdings.com">invest@hyperiusholdings.com</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="color:var(--text-muted);font-size:.85rem;">© 2026 Hyperius Holdings LLC. All rights reserved.</p>
+      <p class="disclaimer">This website does not constitute an offer to sell securities. Investment opportunities are available only to qualified investors.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+// ===== WAITLIST FORM HANDLING =====
+const waitlistForm = document.getElementById('waitlistForm');
+const wlBtn = document.getElementById('wlSubmitBtn');
+if (waitlistForm) {
+  waitlistForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const originalText = wlBtn.textContent;
+    wlBtn.textContent = 'Joining...';
+    wlBtn.disabled = true;
+
+    fetch(waitlistForm.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(waitlistForm)
+    })
+    .then(() => {
+      wlBtn.textContent = '✓ You\'re on the list!';
+      wlBtn.classList.add('success');
+      waitlistForm.reset();
+      setTimeout(() => {
+        wlBtn.textContent = originalText;
+        wlBtn.classList.remove('success');
+        wlBtn.disabled = false;
+      }, 5000);
+    })
+    .catch(() => {
+      wlBtn.textContent = '✓ You\'re on the list!';
+      wlBtn.classList.add('success');
+      waitlistForm.reset();
+      setTimeout(() => {
+        wlBtn.textContent = originalText;
+        wlBtn.classList.remove('success');
+        wlBtn.disabled = false;
+      }, 5000);
+    });
+  });
+}
+</script>
+</body>
+</html>
