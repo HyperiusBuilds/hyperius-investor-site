@@ -1,4 +1,37 @@
+# ─── OS / editor cruft ──────────────────────────────────────
 .DS_Store
 Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# ─── Dependencies (in case future build steps need them) ────
 node_modules/
+.pnpm-store/
+
+# ─── Environment ────────────────────────────────────────────
 .env
+.env.local
+.env.*.local
+!.env.example
+
+# ─── Build outputs ──────────────────────────────────────────
+dist/
+build/
+.next/
+out/
+
+# ─── Vercel / Netlify ───────────────────────────────────────
+.vercel/
+.netlify/
+
+# ─── Logs ───────────────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ─── Backups / sensitive ────────────────────────────────────
+*.bak
+*backup*
+*credentials*
+stripe_*.txt
