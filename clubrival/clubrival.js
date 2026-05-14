@@ -77,45 +77,83 @@
     bars.forEach((b) => { b.style.width = (b.dataset.pct || 0) + '%'; });
   }
 
-  // ─── Form submit handler — surfaces success/error inline ──
+  // ─── Form submit handler — writes directly to Supabase ──
   const form = document.getElementById('crForm');
   const okBox = document.getElementById('crFormSuccess');
   const errBox = document.getElementById('crFormError');
+  
+  // Initialize Supabase client
+  const supabaseUrl = 'https://ykdzlrvkyhxslasesfbc.supabase.co';
+  const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlrZHpscnZreWh4c2xhc2VzZmJjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyMTM1MDYsImV4cCI6MjA5Mzc4OTUwNn0.wuwbQo8q1V_NBOtpAOeXOdjjYT4VlHhTREjHNH7tP-g';
+  const supabase = window.supabase ? window.supabase.createClient(supabaseUrl, supabaseAnonKey) : null;
+
   if (form) {
     form.addEventListener('submit', async (e) => {
-      // If the action URL still has the placeholder, fall back to mailto so
-      // the form is never silently dropped in dev / pre-deploy.
-      if (form.action.includes('YOUR_FORM_ID')) {
-        e.preventDefault();
-        const data = new FormData(form);
-        const lines = [];
-        data.forEach((value, key) => {
-          if (value && key !== 'consent') lines.push(`${key}: ${value}`);
-        });
-        const role = data.get('role') || 'unknown';
-        const subject = encodeURIComponent(`ClubRival inquiry — ${role}`);
-        const body = encodeURIComponent(lines.join('\n'));
-        window.location.href = `mailto:hello@hyperiusholdings.com?subject=${subject}&body=${body}`;
+      e.preventDefault();
+      
+      if (!supabase) {
+        errBox.textContent = 'Database client not loaded. Please try again.';
+        errBox.style.display = 'block';
         return;
       }
 
-      e.preventDefault();
       okBox.style.display = 'none';
       errBox.style.display = 'none';
+      
+      const data = new FormData(form);
+      const role = data.get('role');
+      
       try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { Accept: 'application/json' },
-        });
-        if (res.ok) {
-          form.reset();
-          okBox.style.display = 'block';
-          okBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          throw new Error('non-ok');
+        let error = null;
+        
+        if (role === 'runner') {
+          const { error: e } = await supabase.from('waitlist_signups').insert({
+            name: data.get('name'),
+            email: data.get('email'),
+            city: data.get('city'),
+            club_name: data.get('club') || null,
+            club_activity: data.get('club_activity') || null,
+            message: data.get('message') || null,
+            source: 'hyperius/clubrival',
+            user_agent: navigator.userAgent
+          });
+          error = e;
+        } else if (role === 'brand') {
+          const { error: e } = await supabase.from('brand_applications').insert({
+            contact_name: data.get('name'),
+            contact_email: data.get('email'),
+            brand_name: data.get('brand'),
+            brand_url: data.get('brand_url') || null,
+            brand_location: data.get('brand_location'),
+            category: data.get('brand_category'),
+            proposed_offer: data.get('offer'),
+            source: 'hyperius/clubrival',
+            user_agent: navigator.userAgent
+          });
+          error = e;
+        } else if (role === 'investor') {
+          const { error: e } = await supabase.from('investor_inquiries').insert({
+            contact_name: data.get('name'),
+            contact_email: data.get('email'),
+            firm: data.get('firm') || null,
+            role_title: data.get('role_title') || null,
+            check_size: data.get('check_size') || null,
+            accredited: data.get('accredited') || null,
+            notes: data.get('notes') || null,
+            source: 'hyperius/clubrival',
+            user_agent: navigator.userAgent
+          });
+          error = e;
         }
-      } catch {
+
+        if (error) throw error;
+        
+        form.reset();
+        okBox.style.display = 'block';
+        okBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        console.error('Supabase insert error:', err);
+        errBox.textContent = 'Something went wrong submitting your form. Please try again.';
         errBox.style.display = 'block';
       }
     });
