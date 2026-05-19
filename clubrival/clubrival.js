@@ -8,6 +8,20 @@
 (function () {
   'use strict';
 
+  // ─── PostHog safe-call helper ──────────────────────────────
+  // Fires events only if PostHog loaded; never throws. Properties should
+  // be categorical / non-PII (no names, emails, etc.) so we stay in
+  // marketing-analytics territory rather than ops-data territory.
+  function track(event, props) {
+    try {
+      if (window.posthog && typeof window.posthog.capture === 'function') {
+        window.posthog.capture(event, props || {});
+      }
+    } catch (e) {
+      // never let analytics break the UX
+    }
+  }
+
   // ─── Audience tabs ─────────────────────────────────────────
   const tabs = document.querySelectorAll('.cr-tab');
   const formSections = document.querySelectorAll('[data-form]');
@@ -18,6 +32,7 @@
     brands:    'ClubRival — Brand partner application',
     investors: 'ClubRival — Investor brief request',
   };
+  let currentTab = 'runners';
 
   function setTab(name) {
     tabs.forEach((t) => t.classList.toggle('is-active', t.dataset.tab === name));
@@ -32,6 +47,10 @@
     });
     if (roleField) roleField.value = name === 'runners' ? 'runner' : name === 'brands' ? 'brand' : 'investor';
     if (subjectField) subjectField.value = subjects[name] || subjects.runners;
+    if (name !== currentTab) {
+      track('audience_tab_change', { from_tab: currentTab, to_tab: name });
+      currentTab = name;
+    }
   }
 
   tabs.forEach((tab) => {
@@ -47,10 +66,17 @@
   });
 
   // ─── FAQ accordion ─────────────────────────────────────────
-  document.querySelectorAll('.cr-faq-item').forEach((item) => {
+  document.querySelectorAll('.cr-faq-item').forEach((item, idx) => {
     const q = item.querySelector('.cr-faq-q');
     if (!q) return;
-    q.addEventListener('click', () => item.classList.toggle('is-open'));
+    q.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('is-open');
+      item.classList.toggle('is-open');
+      if (willOpen) {
+        const text = (q.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80);
+        track('faq_open', { question_index: idx, question_preview: text });
+      }
+    });
   });
 
   // ─── TAM bars: fill on enter ──────────────────────────────
@@ -151,14 +177,28 @@
         form.reset();
         okBox.style.display = 'block';
         okBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Successful submission — fire categorical analytics only (no PII).
+        track('form_submit_success', {
+          form_type: role,
+          city: role === 'runner' ? (data.get('city') || null) : null,
+          category: role === 'brand' ? (data.get('brand_category') || null) : null,
+          check_size: role === 'investor' ? (data.get('check_size') || null) : null,
+        });
       } catch (err) {
         console.error('Supabase insert error:', err);
         // Friendlier message when the email is already on the list.
         // Postgres unique-constraint violation code is 23505.
-        if (err && (err.code === '23505' || /duplicate key|unique constraint/i.test(err.message || ''))) {
+        const isDup = err && (err.code === '23505' || /duplicate key|unique constraint/i.test(err.message || ''));
+        if (isDup) {
           errBox.innerHTML = "You're already on our list. We'll reach out as soon as a spot opens — or email <a href=\"mailto:admin@hyperius.site\" style=\"color:var(--gold-400);\">admin@hyperius.site</a> if you need to update your details.";
+          track('form_submit_duplicate', { form_type: role });
         } else {
           errBox.textContent = 'Something went wrong submitting your form. Please try again or email admin@hyperius.site.';
+          track('form_submit_error', {
+            form_type: role,
+            error_code: (err && err.code) || 'unknown',
+          });
         }
         errBox.style.display = 'block';
         errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
