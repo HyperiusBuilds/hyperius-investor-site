@@ -147,14 +147,21 @@
         }
 
         if (error) throw error;
-        
+
         form.reset();
         okBox.style.display = 'block';
         okBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } catch (err) {
         console.error('Supabase insert error:', err);
-        errBox.textContent = 'Something went wrong submitting your form. Please try again.';
+        // Friendlier message when the email is already on the list.
+        // Postgres unique-constraint violation code is 23505.
+        if (err && (err.code === '23505' || /duplicate key|unique constraint/i.test(err.message || ''))) {
+          errBox.innerHTML = "You're already on our list. We'll reach out as soon as a spot opens — or email <a href=\"mailto:admin@hyperius.site\" style=\"color:var(--gold-400);\">admin@hyperius.site</a> if you need to update your details.";
+        } else {
+          errBox.textContent = 'Something went wrong submitting your form. Please try again or email admin@hyperius.site.';
+        }
         errBox.style.display = 'block';
+        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
   }
