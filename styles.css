@@ -38,9 +38,9 @@ nav ul a:hover{color:#fff}
 .stat-banner .stat-value{font-size:1.6rem;font-weight:800;color:var(--accent-light)}
 .stat-banner .stat-label{font-size:.8rem;color:var(--text-muted);margin-top:4px}
 .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
-.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-light));color:#fff;padding:16px 36px;border-radius:10px;font-weight:700;font-size:1rem;border:0;cursor:pointer;transition:all .3s;box-shadow:0 4px 20px rgba(46,117,182,0.4)}
+.btn-primary{display:inline-block;text-decoration:none;background:linear-gradient(135deg,var(--accent),var(--accent-light));color:#fff;padding:16px 36px;border-radius:10px;font-weight:700;font-size:1rem;border:0;cursor:pointer;transition:all .3s;box-shadow:0 4px 20px rgba(46,117,182,0.4)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(46,117,182,0.6);color:#fff}
-.btn-secondary{border:2px solid rgba(255,255,255,0.2);color:#fff;padding:14px 36px;border-radius:10px;font-weight:600;font-size:1rem;background:0;cursor:pointer;transition:all .3s}
+.btn-secondary{display:inline-block;text-decoration:none;border:2px solid rgba(255,255,255,0.2);color:#fff;padding:14px 36px;border-radius:10px;font-weight:600;font-size:1rem;background:0;cursor:pointer;transition:all .3s}
 .btn-secondary:hover{border-color:var(--accent-light);background:rgba(46,117,182,0.1);color:#fff}
 
 /* CARDS & GRIDS */
