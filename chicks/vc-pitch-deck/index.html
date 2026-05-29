@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CHICKS — VC Pitch Deck</title>
+<link rel="stylesheet" href="../assets/brand.css">
+<style>
+  :root {
+    --audience: var(--gold);
+    /* tweakable logo sizing — topbar mark shows on every slide */
+    --lockup-scale: 1.45;     /* persistent brand mark, base 156×50 */
+    --cover-mark-scale: 1;    /* hero logo on the cover, base 280px */
+  }
+  html, body { margin: 0; background: #0a0a0a; }
+  deck-stage:not(:defined) { visibility: hidden; }
+
+  /* ---- tweak-driven logo overrides (win over brand.css by cascade order) ---- */
+  .lockup::after {
+    width: calc(156px * var(--lockup-scale));
+    height: calc(50px * var(--lockup-scale));
+  }
+  .lockup .bullet {
+    width: calc(12px * var(--lockup-scale));
+    height: calc(12px * var(--lockup-scale));
+  }
+  .cover-mark {
+    height: calc(280px * var(--cover-mark-scale));
+  }
+</style>
+
+<style id="chicks-backlink-style">
+  .back-to-chicks{
+    position:fixed; top:16px; right:16px; z-index:2147483600;
+    display:inline-flex; align-items:center; gap:8px;
+    padding:9px 16px; background:rgba(14,14,12,0.82);
+    -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+    color:#F5EFE0; text-decoration:none;
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase;
+    border:1px solid rgba(245,239,224,0.28); border-radius:999px;
+    transition:background .15s ease,border-color .15s ease,color .15s ease;
+  }
+  .back-to-chicks:hover{ background:#D9521A; border-color:#D9521A; color:#0E0E0C; }
+</style>
+</head>
+<body>
+<a href="../" class="back-to-chicks" aria-label="Back to CHICKS hub">&larr; CHICKS</a>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- ============ 01  COVER ============ -->
+  <section class="dark" data-label="Cover">
+    <div class="frame" style="padding: 72px 88px;">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">VC Pitch · Pre-Seed Round</div>
+      </div>
+
+      <div class="row fill" style="gap: 64px;">
+        <div class="col fill between" style="padding-top: 24px;">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 24px;">High-protein chicken chips · brand-first snack platform</div>
+            <img class="cover-mark" src="../assets/chicks-logo.png" alt="CHICKS">
+            <div class="lede" style="margin-top: 40px; max-width: 32ch; font-size: 32px;">
+              A <em style="font-style:normal;color:var(--audience)">snack brand</em> that happens to have elite macros.<br>100 cal · 24g protein · 0g fat per bag.
+            </div>
+          </div>
+
+          <div class="row" style="gap: 80px; align-items: flex-end;">
+            <div class="stat">
+              <div class="num accent mono" style="font-family:var(--display);font-size:140px;"><span class="insert">$1.5M</span></div>
+              <div class="lbl">Pre-seed round · funding ask</div>
+            </div>
+            <div class="stat">
+              <div class="num mono" style="font-family:var(--display);font-size:140px;color:var(--bone);">18 mo</div>
+              <div class="lbl">Runway to Series A readiness</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- bag trio -->
+        <div style="flex: 0 0 520px; align-self: stretch; display: flex; align-items: center; justify-content: center; gap: 14px; padding-top: 36px;">
+          <div class="bag sco" style="width: 150px; transform: rotate(-6deg) translateY(8px);">
+            <div class="bag-brand">CHICKS<span style="color: currentColor;">.</span></div>
+            <div>
+              <div class="bag-callout">24g<br>protein</div>
+              <div class="bag-flav">Sour Cream &amp; Onion</div>
+            </div>
+          </div>
+          <div class="bag bbq" style="width: 170px; z-index: 2;">
+            <div class="bag-brand">CHICKS<span style="color: var(--audience);">.</span></div>
+            <div>
+              <div class="bag-callout">24g<br>protein</div>
+              <div class="bag-flav">BBQ</div>
+            </div>
+          </div>
+          <div class="bag salt" style="width: 150px; transform: rotate(6deg) translateY(8px);">
+            <div class="bag-brand">CHICKS<span style="color: var(--audience);">.</span></div>
+            <div>
+              <div class="bag-callout">24g<br>protein</div>
+              <div class="bag-flav">Sea Salt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot" style="margin-top: 56px;">
+        <span>CHICKS · CONFIDENTIAL</span>
+        <span><span class="insert">KALYN BENTLEY</span> &nbsp;·&nbsp; <span class="insert">APRIL 2026</span></span>
+        <span>01 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02  PROBLEM ============ -->
+  <section data-label="Problem">
+    <div class="frame">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">02 · The Problem</div>
+      </div>
+
+      <div class="row" style="gap: 96px; align-items: flex-start;">
+        <div style="flex: 0 0 760px;">
+          <div class="eyebrow" style="margin-bottom: 20px;">The protein-snack gap</div>
+          <h1 class="h1">Bars are<br>boring.<br>Jerky<br>isn't a <span class="punch">chip</span>.</h1>
+          <p class="lede muted" style="margin-top: 36px; max-width: 30ch;">
+            Consumers want savory crunch with serious protein. The aisle gives them puffs, jerky, or chalky bars. Nobody has built the real thing.
+          </p>
+        </div>
+
+        <div class="col fill" style="gap: 0; padding-top: 60px;">
+          <div class="list-row">
+            <div class="idx mono">01</div>
+            <div>
+              <div class="title">Sweet-protein fatigue</div>
+              <div class="sub">Bars and cookies dominate the protein aisle. Consumers crave savory occasions — lunch, post-gym, late-night.</div>
+            </div>
+            <div class="meta">Category</div>
+          </div>
+          <div class="list-row">
+            <div class="idx mono">02</div>
+            <div>
+              <div class="title">"Protein chips" aren't chips</div>
+              <div class="sub">Quest, Barebells, etc. are puffs or bars — different texture, weaker satiety, far lower protein density.</div>
+            </div>
+            <div class="meta">Product</div>
+          </div>
+          <div class="list-row">
+            <div class="idx mono">03</div>
+            <div>
+              <div class="title">Jerky is messy</div>
+              <div class="sub">Chewy, inconsistent, expensive. Doesn't replace the "crunch" moment a chip owns.</div>
+            </div>
+            <div class="meta">Occasion</div>
+          </div>
+          <div class="list-row">
+            <div class="idx mono">04</div>
+            <div>
+              <div class="title">71% of US consumers want more protein</div>
+              <div class="sub">And 61% increased their intake in 2024. The macros are mainstream — but no snack brand owns it.</div>
+            </div>
+            <div class="meta">IFIC · Cargill '25</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>The Problem</span>
+        <span>71% want more protein · nobody owns crunchy savory</span>
+        <span>02 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03  SOLUTION ============ -->
+  <section data-label="Solution">
+    <div class="frame">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">03 · The Solution</div>
+      </div>
+
+      <div class="row fill" style="gap: 64px;">
+        <div style="flex: 1;">
+          <div class="eyebrow" style="margin-bottom: 18px;">A snack-first protein brand</div>
+          <h1 class="h1">Real<br>chips.<br>Elite<br><span class="punch">macros</span>.</h1>
+          <p class="lede muted" style="margin-top: 32px; max-width: 28ch;">
+            A snack you'd buy anyway — that happens to fit your macros. Built for cravings first, calorie tracking second.
+          </p>
+        </div>
+
+        <div class="col fill" style="gap: 24px;">
+          <div class="card">
+            <div class="eyebrow">Hero product</div>
+            <div class="h3">Chicken chips · 1 oz bag</div>
+            <div class="muted">True chip crunch made from chicken breast + egg white. 100 cal · 24g protein · 0g fat. Three flavors at launch.</div>
+          </div>
+          <div class="card">
+            <div class="eyebrow">Beachhead → portfolio</div>
+            <div class="h3">A snack brand with macros</div>
+            <div class="muted">Start with chicken chips. Expand to crackers, puffs, jerky-crisps. Same brand, same channels, same playbook.</div>
+          </div>
+          <div class="card accent">
+            <div class="eyebrow" style="color: var(--ink);">The positioning</div>
+            <div class="h3">Performance snack meets addictive snack</div>
+            <div>Not a fitness product pretending to be a snack. A snack with elite macros. The protein is the justification — taste &amp; identity sell the bag.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>The Solution</span>
+        <span>Snack first · macros second</span>
+        <span>03 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04  PRODUCT + WHITE LABEL ============ -->
+  <section data-label="Product & White Label">
+    <div class="frame">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">04 · Product &amp; White Label Model</div>
+      </div>
+
+      <h2 class="h2" style="max-width: 24ch; margin-bottom: 40px;">Made in the USA.<br>Zero <span class="punch">CAPEX</span>.</h2>
+
+      <div class="row fill" style="gap: 32px;">
+
+        <!-- Three flavor bags -->
+        <div style="flex: 0 0 540px; display: flex; gap: 14px; align-items: center;">
+          <div class="bag salt" style="flex: 1;">
+            <div class="bag-brand">CHICKS<span style="color: var(--audience);">.</span></div>
+            <div>
+              <div class="bag-callout">Sea<br>Salt</div>
+              <div class="bag-flav">100 cal · 24g</div>
+            </div>
+          </div>
+          <div class="bag sco" style="flex: 1;">
+            <div class="bag-brand">CHICKS<span style="color: currentColor;">.</span></div>
+            <div>
+              <div class="bag-callout">Sour<br>Cream<br>&amp; Onion</div>
+              <div class="bag-flav">100 cal · 24g</div>
+            </div>
+          </div>
+          <div class="bag bbq" style="flex: 1;">
+            <div class="bag-brand">CHICKS<span style="color: var(--audience);">.</span></div>
+            <div>
+              <div class="bag-callout">BBQ</div>
+              <div class="bag-flav">100 cal · 24g</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col fill" style="gap: 18px;">
+          <div class="grid-3">
+            <div class="stat">
+              <div class="num accent mono" style="font-family:var(--display); font-size: 96px;">100</div>
+              <div class="lbl">Calories per 1 oz bag</div>
+            </div>
+            <div class="stat">
+              <div class="num mono" style="font-family:var(--display); font-size: 96px;">24g</div>
+              <div class="lbl">Protein per bag</div>
+            </div>
+            <div class="stat">
+              <div class="num mono" style="font-family:var(--display); font-size: 96px;">0g</div>
+              <div class="lbl">Fat · clean panel</div>
+            </div>
+          </div>
+
+          <div class="card" style="background: var(--bone-2);">
+            <div class="eyebrow">Chicky Shake · co-manufacturer</div>
+            <div class="h3">Our US-based co-pack runs every line.</div>
+            <div class="muted" style="max-width: 64ch;">
+              Chicky Shake is a US food-manufacturing partner with the equipment, certifications and chicken supply chain already in place. CHICKS owns the formula, brand, channel and customer. They own the steel. Every dollar raised goes to growth — not factory build-out.
+            </div>
+            <div class="row" style="gap: 10px; flex-wrap: wrap; margin-top: 6px;">
+              <div class="chip">Asset-light</div>
+              <div class="chip">Made in USA</div>
+              <div class="chip">FDA · SQF · HACCP</div>
+              <div class="chip">MOQ <span class="insert" style="margin-left:6px;">25K bags</span></div>
+              <div class="chip">9-12mo shelf</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>Product · White Label</span>
+        <span>Chicky Shake = US co-manufacturer · not the product</span>
+        <span>04 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05  MARKET (TAM/SAM/SOM) ============ -->
+  <section class="dark" data-label="Market">
+    <div class="frame">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">05 · Market Opportunity</div>
+      </div>
+
+      <div class="row fill" style="gap: 64px; align-items: flex-start;">
+        <div style="flex: 0 0 620px;">
+          <div class="eyebrow" style="margin-bottom: 18px;">Big snack market entering its protein era</div>
+          <h1 class="h1" style="color: var(--bone);">A $4.2B<br>protein-<br>snack<br><span class="punch">land grab</span>.</h1>
+          <p class="lede" style="margin-top: 28px; max-width: 30ch; color:#bdb6a6;">
+            US protein-snack category grows $1.8B → $4.2B by 2035 at 8.6% CAGR. Inside a $48B US savory-snack mothership.
+          </p>
+        </div>
+
+        <div class="col fill" style="gap: 0;">
+
+          <div style="display: grid; grid-template-columns: 140px 1fr 200px; align-items: center; gap: 24px; padding: 28px 0; border-top: var(--rule) solid var(--bone);">
+            <div class="mono" style="font-size: 18px; letter-spacing: 0.14em;">TAM</div>
+            <div style="height: 56px; background: #2a2823; position: relative;">
+              <div style="position: absolute; inset: 0; background: var(--bone); width: 100%;"></div>
+            </div>
+            <div class="display" style="font-size: 48px; color: var(--bone); text-align: right;">$48B</div>
+          </div>
+          <div style="display: grid; grid-template-columns: 140px 1fr 200px; align-items: center; gap: 24px; padding: 28px 0; border-top: var(--rule) solid var(--bone);">
+            <div class="mono" style="font-size: 18px; letter-spacing: 0.14em;">SAM</div>
+            <div style="height: 56px; background: #2a2823; position: relative;">
+              <div style="position: absolute; inset: 0; background: var(--punch); width: 38%;"></div>
+            </div>
+            <div class="display" style="font-size: 48px; color: var(--bone); text-align: right;">$4.2B</div>
+          </div>
+          <div style="display: grid; grid-template-columns: 140px 1fr 200px; align-items: center; gap: 24px; padding: 28px 0; border-top: var(--rule) solid var(--bone); border-bottom: var(--rule) solid var(--bone);">
+            <div class="mono" style="font-size: 18px; letter-spacing: 0.14em;">SOM · Y3</div>
+            <div style="height: 56px; background: #2a2823; position: relative;">
+              <div style="position: absolute; inset: 0; background: var(--punch); width: 1.5%;"></div>
+            </div>
+            <div class="display" style="font-size: 48px; color: var(--bone); text-align: right;">$2.5M</div>
+          </div>
+
+          <div class="grid-3" style="margin-top: 40px; gap: 20px;">
+            <div>
+              <div class="eyebrow" style="margin-bottom: 8px;">TAM</div>
+              <div style="color:#bdb6a6;">US savory snack category.</div>
+            </div>
+            <div>
+              <div class="eyebrow" style="margin-bottom: 8px;">SAM</div>
+              <div style="color:#bdb6a6;">Better-for-you + high-protein savory snacks by 2035.</div>
+            </div>
+            <div>
+              <div class="eyebrow" style="margin-bottom: 8px;">SOM · Y3</div>
+              <div style="color:#bdb6a6;">$2.5M target via phased DTC → Amazon → selective retail.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>Market</span>
+        <span>Sources: Future Market Insights · IFIC · Cargill 2025</span>
+        <span>05 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06  GROWTH MODEL ============ -->
+  <section data-label="Growth Model">
+    <div class="frame">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">06 · Growth Model</div>
+      </div>
+
+      <div class="row" style="gap: 64px; align-items: flex-start;">
+        <div style="flex: 0 0 600px;">
+          <div class="eyebrow" style="margin-bottom: 18px;">Hockey stick by design</div>
+          <h2 class="h2">TikTok →<br>Amazon →<br><span class="punch">Retail</span>.</h2>
+          <p class="lede muted" style="margin-top: 28px; max-width: 28ch;">
+            DTC + creators prove demand fast. Amazon harvests the search. Retail follows the data. Same brand, same flywheel.
+          </p>
+        </div>
+
+        <div class="fill">
+          <div class="eyebrow" style="margin-bottom: 12px;">Revenue by channel · Y1 → Y3</div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; height: 460px; align-items: end;">
+            <div style="display:flex; flex-direction:column; align-items:stretch; gap: 10px; height: 100%; justify-content: flex-end;">
+              <div class="display" style="font-size: 44px;">$<span class="insert" style="font-size:0.6em;vertical-align:0.5em;">0.4M</span></div>
+              <div style="display:flex; flex-direction:column; gap: 4px;">
+                <div style="height: 12px; background: var(--bone-3);" title="Amazon"></div>
+                <div style="height: 44px; background: var(--audience);" title="DTC"></div>
+              </div>
+              <div class="bar-lbl">Year 1 · Pre-order + DTC</div>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:stretch; gap: 10px; height: 100%; justify-content: flex-end;">
+              <div class="display" style="font-size: 56px;">$<span class="insert" style="font-size:0.6em;vertical-align:0.5em;">1.1M</span></div>
+              <div style="display:flex; flex-direction:column; gap: 4px;">
+                <div style="height: 70px; background: var(--bone-3);" title="Amazon"></div>
+                <div style="height: 90px; background: var(--audience);" title="DTC"></div>
+              </div>
+              <div class="bar-lbl">Year 2 · Amazon + subscription</div>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:stretch; gap: 10px; height: 100%; justify-content: flex-end;">
+              <div class="display" style="font-size: 72px;">$<span class="insert" style="font-size:0.55em;vertical-align:0.45em;">2.5M</span></div>
+              <div style="display:flex; flex-direction:column; gap: 4px;">
+                <div style="height: 90px; background: var(--ink);" title="Retail"></div>
+                <div style="height: 150px; background: var(--bone-3);" title="Amazon"></div>
+                <div style="height: 160px; background: var(--audience);" title="DTC"></div>
+              </div>
+              <div class="bar-lbl">Year 3 · Selective retail</div>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 24px; gap: 24px; flex-wrap: wrap;">
+            <div class="tick"><span style="background:var(--audience);width:10px;height:10px;display:inline-block;margin-right:8px;"></span><span class="mono" style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;">DTC + TikTok Shop</span></div>
+            <div class="tick"><span style="background:var(--bone-3);width:10px;height:10px;display:inline-block;margin-right:8px;"></span><span class="mono" style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;">Amazon FBA</span></div>
+            <div class="tick"><span style="background:var(--ink);width:10px;height:10px;display:inline-block;margin-right:8px;"></span><span class="mono" style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;">Gym + Nutrition Retail</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>Growth Model</span>
+        <span>Levers: bundle AOV · subscription · variety packs · retail velocity</span>
+        <span>06 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07  UNIT ECONOMICS ============ -->
+  <section data-label="Unit Economics">
+    <div class="frame">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">07 · Unit Economics</div>
+      </div>
+
+      <h2 class="h2" style="margin-bottom: 56px;">Bundle-first. <span class="punch">CM-positive</span> from day one.</h2>
+
+      <div class="grid-4" style="gap: 24px;">
+        <div class="card">
+          <div class="eyebrow">CAC</div>
+          <div class="num-mono">$<span class="insert">42</span></div>
+          <div class="muted">Target &lt;$50</div>
+        </div>
+        <div class="card">
+          <div class="eyebrow">AOV · 12-pack</div>
+          <div class="num-mono">$<span class="insert">52.99</span></div>
+          <div class="muted">6-pack $28.99 · variety 12 $54.99</div>
+        </div>
+        <div class="card">
+          <div class="eyebrow">LTV (12mo)</div>
+          <div class="num-mono">$<span class="insert">186</span></div>
+          <div class="muted">Subscription + reorder</div>
+        </div>
+        <div class="card accent">
+          <div class="eyebrow" style="color:var(--ink);">LTV : CAC</div>
+          <div class="num-mono"><span class="insert">3 : 1+</span></div>
+          <div>Industry benchmark · payback &lt;12 mo</div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 48px; gap: 40px; align-items: stretch;">
+        <div class="card" style="flex: 1.4;">
+          <div class="eyebrow">Per-order waterfall · 12-pack DTC</div>
+          <div style="display: grid; grid-template-columns: 180px 1fr 140px; row-gap: 14px; column-gap: 16px; align-items: center; margin-top: 16px;">
+            <div class="mono" style="font-size:14px;">REVENUE</div>
+            <div style="height: 20px; background: var(--ink);"></div>
+            <div class="mono" style="text-align: right;">$<span class="insert">52.99</span></div>
+
+            <div class="mono" style="font-size:14px;">COGS · 12 bags</div>
+            <div style="height: 20px; background: var(--bone-3); width: 36%;"></div>
+            <div class="mono" style="text-align: right;">($<span class="insert">19</span>)</div>
+
+            <div class="mono" style="font-size:14px;">FULFILLMENT</div>
+            <div style="height: 20px; background: var(--bone-3); width: 14%;"></div>
+            <div class="mono" style="text-align: right;">($<span class="insert">7.50</span>)</div>
+
+            <div class="mono" style="font-size:14px;">CAC</div>
+            <div style="height: 20px; background: var(--bone-3); width: 13%;"></div>
+            <div class="mono" style="text-align: right;">($<span class="insert">7</span>)</div>
+
+            <div class="mono" style="font-size:14px; color: var(--audience);">CONTRIBUTION</div>
+            <div style="height: 28px; background: var(--audience); width: 37%;"></div>
+            <div class="mono" style="text-align: right; color: var(--audience);">$<span class="insert">19.49</span></div>
+          </div>
+        </div>
+
+        <div class="card invert" style="flex: 1;">
+          <div class="eyebrow" style="color:#bdb6a6;">Why it compounds</div>
+          <ul style="display: flex; flex-direction: column; gap: 14px; margin-top: 8px;">
+            <li class="tick"><span>White-label COGS drops at scale tiers</span></li>
+            <li class="tick"><span>Variety packs lift AOV — bundle &gt; single</span></li>
+            <li class="tick"><span>Crunch ASMR = organic CAC near $0</span></li>
+            <li class="tick"><span>Subscription = predictable contribution</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>Unit Economics</span>
+        <span>Payback &lt; 12 months · retention &gt; 35% target</span>
+        <span>07 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08  GTM ============ -->
+  <section data-label="Go-to-Market">
+    <div class="frame">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">08 · Go-To-Market</div>
+      </div>
+
+      <h2 class="h2" style="margin-bottom: 56px;">Pre-order wedge.<br><span class="punch">Fulfillment</span> flywheel. Retail follow-through.</h2>
+
+      <div class="row" style="gap: 32px; align-items: stretch;">
+        <div class="card" style="flex: 1; position: relative;">
+          <div class="display" style="position:absolute; top:24px; right:30px; font-size: 120px; color: var(--bone-3); line-height: 1;">01</div>
+          <div class="eyebrow">Months 0–4</div>
+          <div class="h3">Pre-order &amp; ship<br>TikTok → Shopify</div>
+          <p class="muted">Daily short-form content. 2× weekly live selling. Creator seeding. Ship first drop · <span class="insert">Apr 15, 2026</span>.</p>
+          <div class="row" style="gap: 8px; margin-top: auto; flex-wrap: wrap;">
+            <div class="chip">TikTok</div>
+            <div class="chip">Shopify</div>
+            <div class="chip">Bundles</div>
+          </div>
+        </div>
+
+        <div class="card" style="flex: 1; position: relative;">
+          <div class="display" style="position:absolute; top:24px; right:30px; font-size: 120px; color: var(--bone-3); line-height: 1;">02</div>
+          <div class="eyebrow">Months 4–12</div>
+          <div class="h3">Amazon + subscription<br>Reorder automation</div>
+          <p class="muted">Amazon FBA launch. UGC → Spark Ads. Subscription with variety swaps. Retention &gt;35% target.</p>
+          <div class="row" style="gap: 8px; margin-top: auto; flex-wrap: wrap;">
+            <div class="chip">Amazon FBA</div>
+            <div class="chip">TikTok Shop</div>
+            <div class="chip">Subscribe &amp; Save</div>
+          </div>
+        </div>
+
+        <div class="card accent" style="flex: 1; position: relative;">
+          <div class="display" style="position:absolute; top:24px; right:30px; font-size: 120px; color: rgba(14,14,12,0.18); line-height: 1;">03</div>
+          <div class="eyebrow" style="color: var(--ink);">Months 12–36</div>
+          <div class="h3">Selective retail<br>GNC → Target → mass</div>
+          <p>Nutrition retail pilots (GNC, Vitamin Shoppe). Gym chain sampling. Target / Costco pilots Y3. National Y4+.</p>
+          <div class="row" style="gap: 8px; margin-top: auto; flex-wrap: wrap;">
+            <div class="chip" style="border-color: var(--ink); background: var(--ink); color: var(--bone);">GNC</div>
+            <div class="chip" style="border-color: var(--ink); background: var(--ink); color: var(--bone);">Vitamin Shoppe</div>
+            <div class="chip" style="border-color: var(--ink); background: var(--ink); color: var(--bone);">Target · Costco</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>Go-To-Market</span>
+        <span>DTC proves it · retail scales it</span>
+        <span>08 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09  BRAND + COMMUNITY ============ -->
+  <section data-label="Brand & Community">
+    <div class="frame">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">09 · Brand &amp; Community</div>
+      </div>
+
+      <div class="row fill" style="gap: 56px;">
+        <div style="flex: 1;">
+          <div class="eyebrow" style="margin-bottom: 18px;">Cravings + identity sell bags</div>
+          <h1 class="h1">Built for<br>the<br><span class="punch">crunch</span>.</h1>
+          <p class="lede muted" style="margin-top: 32px; max-width: 30ch;">
+            CHICKS is a snack brand first. Crunch ASMR. Gym-bag flexes. Late-night cheat-code energy. Protein is the receipt — taste is the post.
+          </p>
+
+          <div class="grid-2" style="margin-top: 48px; gap: 16px;">
+            <div class="stat">
+              <div class="num accent mono" style="font-family:var(--display); font-size:96px;"><span class="insert" style="font-size:0.55em;vertical-align:0.4em;">XX,XXX</span></div>
+              <div class="lbl">TikTok followers · organic</div>
+            </div>
+            <div class="stat">
+              <div class="num mono" style="font-family:var(--display); font-size:96px;"><span class="insert" style="font-size:0.55em;vertical-align:0.4em;">X,XXX</span></div>
+              <div class="lbl">Pre-orders / waitlist</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col fill" style="gap: 18px;">
+          <div class="product-slot" style="height: 240px;">UGC · gym-bag flex</div>
+          <div class="row" style="gap: 18px; flex: 1;">
+            <div class="product-slot" style="flex: 1;">Crunch ASMR clip</div>
+            <div class="product-slot" style="flex: 1;">Macro-tracker post</div>
+          </div>
+          <div class="card invert">
+            <div class="eyebrow" style="color:#bdb6a6;">Content engine</div>
+            <p>Daily TikTok hooks. Crunch tests. Macro comparisons. Creator collabs. Gym-bag drops. Brand voice = loud where it matters, clean where it doesn't.</p>
+            <div class="row" style="gap: 10px; flex-wrap: wrap; margin-top: 12px;">
+              <div class="chip" style="border-color: var(--bone); color: var(--bone);">Quest</div>
+              <div class="chip" style="border-color: var(--bone); color: var(--bone);">Feastables</div>
+              <div class="chip" style="border-color: var(--bone); color: var(--bone);">Prime</div>
+              <div class="chip" style="border-color: var(--bone); color: var(--bone);">Liquid Death</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>Brand &amp; Community</span>
+        <span>The bag is the ad</span>
+        <span>09 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10  COMPETITIVE MOAT ============ -->
+  <section data-label="Competitive Moat">
+    <div class="frame">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">10 · Competitive Moat</div>
+      </div>
+
+      <h2 class="h2" style="margin-bottom: 48px;">Where CHICKS<br><span class="punch">actually wins</span>.</h2>
+
+      <div class="row fill" style="gap: 56px;">
+        <div style="flex: 0 0 760px; position: relative; border: var(--rule) solid var(--ink); height: 540px;">
+          <div style="position: absolute; inset: 0;">
+            <div class="mono" style="position:absolute; top:-28px; left:50%; transform:translateX(-50%); font-size:14px; letter-spacing:0.14em; text-transform:uppercase;">High protein density ▲</div>
+            <div class="mono" style="position:absolute; bottom:-28px; left:50%; transform:translateX(-50%); font-size:14px; letter-spacing:0.14em; text-transform:uppercase;">▼ Low protein</div>
+            <div class="mono" style="position:absolute; left:32px; top:50%; transform:translateY(-50%) rotate(-90deg); transform-origin: left center; font-size:14px; letter-spacing:0.14em; text-transform:uppercase;">◀ Puff / extruded</div>
+            <div class="mono" style="position:absolute; right:-8px; top:50%; transform:translate(0,-50%) rotate(90deg); transform-origin: right center; font-size:14px; letter-spacing:0.14em; text-transform:uppercase;">True chip crunch ▶</div>
+
+            <div style="position:absolute; left:50%; top:0; bottom:0; width:1px; background: rgba(14,14,12,0.18);"></div>
+            <div style="position:absolute; top:50%; left:0; right:0; height:1px; background: rgba(14,14,12,0.18);"></div>
+
+            <div style="position:absolute; left:28%; top:42%; transform:translate(-50%,-50%);">
+              <div style="width:14px; height:14px; background: var(--stone); border-radius:50%;"></div>
+              <div class="mono" style="font-size:13px; margin-top:8px;">Quest · 19g</div>
+            </div>
+            <div style="position:absolute; left:20%; top:64%; transform:translate(-50%,-50%);">
+              <div style="width:14px; height:14px; background: var(--stone); border-radius:50%;"></div>
+              <div class="mono" style="font-size:13px; margin-top:8px;">Barebells · 15g</div>
+            </div>
+            <div style="position:absolute; left:48%; top:70%; transform:translate(-50%,-50%);">
+              <div style="width:14px; height:14px; background: var(--stone); border-radius:50%;"></div>
+              <div class="mono" style="font-size:13px; margin-top:8px;">Chomps · 12g</div>
+            </div>
+            <div style="position:absolute; left:72%; top:82%; transform:translate(-50%,-50%);">
+              <div style="width:14px; height:14px; background: var(--stone); border-radius:50%;"></div>
+              <div class="mono" style="font-size:13px; margin-top:8px;">Doritos / Lay's</div>
+            </div>
+
+            <div style="position:absolute; left:80%; top:20%; transform:translate(-50%,-50%);">
+              <div style="width:34px; height:34px; background: var(--audience); border: 3px solid var(--ink); border-radius:50%;"></div>
+              <div class="display" style="font-size: 22px; margin-top:10px;">CHICKS · 24g</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col fill" style="gap: 0; padding-left: 28px;">
+          <div class="list-row" style="grid-template-columns: 56px 1fr;">
+            <div class="idx mono">01</div>
+            <div>
+              <div class="title">Highest protein density</div>
+              <div class="sub">24g per 100 cal vs. Quest 19g, Barebells 15g, Chomps 12g — the densest savory protein snack at retail.</div>
+            </div>
+          </div>
+          <div class="list-row" style="grid-template-columns: 56px 1fr;">
+            <div class="idx mono">02</div>
+            <div>
+              <div class="title">True chip crunch</div>
+              <div class="sub">Not a puff. Not jerky. The texture protein consumers actually want.</div>
+            </div>
+          </div>
+          <div class="list-row" style="grid-template-columns: 56px 1fr;">
+            <div class="idx mono">03</div>
+            <div>
+              <div class="title">Proprietary formulation</div>
+              <div class="sub">Chicken-breast + egg-white base. Banana powder for structure. Defensible recipe.</div>
+            </div>
+          </div>
+          <div class="list-row" style="grid-template-columns: 56px 1fr;">
+            <div class="idx mono">04</div>
+            <div>
+              <div class="title">DTC-first customer data</div>
+              <div class="sub">First-party data + community Quest, Barebells, and grocery brands will never have.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>Competitive Moat</span>
+        <span>Texture · density · brand · data</span>
+        <span>10 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11  FINANCIALS ============ -->
+  <section data-label="Financials">
+    <div class="frame">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">11 · Financial Projections</div>
+      </div>
+
+      <h2 class="h2" style="margin-bottom: 32px;">5-Year P&amp;L · the <span class="punch">inflection</span>.</h2>
+
+      <div style="display:flex; justify-content: space-between; margin-bottom: 12px;">
+        <div class="mono" style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone-2);">Revenue · 5-year trajectory</div>
+        <div class="mono" style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--audience);">EBITDA positive · Y4</div>
+      </div>
+
+      <div style="position: relative; height: 420px; border-top: var(--rule) solid var(--ink); border-bottom: var(--rule) solid var(--ink); margin-bottom: 32px;">
+        <div style="position:absolute;inset:0;display:grid;grid-template-rows:repeat(4,1fr);pointer-events:none;">
+          <div style="border-bottom:1px dashed rgba(14,14,12,0.12);"></div>
+          <div style="border-bottom:1px dashed rgba(14,14,12,0.12);"></div>
+          <div style="border-bottom:1px dashed rgba(14,14,12,0.12);"></div>
+          <div></div>
+        </div>
+
+        <div style="position:absolute; inset:0; display:grid; grid-template-columns:repeat(5,1fr); align-items:end; padding: 16px 60px 12px;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+            <div class="mono" style="font-size:18px;">$<span class="insert">0.4M</span></div>
+            <div style="width: 90px; height: 16px; background: var(--ink);"></div>
+            <div class="bar-lbl">Y1</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+            <div class="mono" style="font-size:18px;">$<span class="insert">1.1M</span></div>
+            <div style="width: 90px; height: 42px; background: var(--ink);"></div>
+            <div class="bar-lbl">Y2</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+            <div class="mono" style="font-size:18px;">$2.5M</div>
+            <div style="width: 90px; height: 94px; background: var(--ink);"></div>
+            <div class="bar-lbl">Y3</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+            <div class="mono" style="font-size:18px;">$<span class="insert">4.8M</span></div>
+            <div style="width: 90px; height: 180px; background: var(--audience);"></div>
+            <div class="bar-lbl">Y4</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:10px;">
+            <div class="mono" style="font-size:18px;">$<span class="insert">8.5M</span></div>
+            <div style="width: 90px; height: 320px; background: var(--audience);"></div>
+            <div class="bar-lbl">Y5</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-4" style="gap: 20px;">
+        <div class="card" style="padding: 24px;">
+          <div class="eyebrow">Gross margin</div>
+          <div class="num-mono" style="font-size: 40px;"><span class="insert">42%</span> → <span class="insert">55%</span></div>
+          <div class="muted" style="font-size: 16px;">Y1 → Y5 · COGS tiers + DTC mix</div>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <div class="eyebrow">EBITDA</div>
+          <div class="num-mono" style="font-size: 40px;"><span class="insert">($0.6M)</span> → <span class="insert">$1.8M</span></div>
+          <div class="muted" style="font-size: 16px;">Inflects Year 4</div>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <div class="eyebrow">Bags shipped</div>
+          <div class="num-mono" style="font-size: 40px;"><span class="insert">90K</span> → <span class="insert">1.9M</span></div>
+          <div class="muted" style="font-size: 16px;">1 oz units · Y1 → Y5</div>
+        </div>
+        <div class="card accent" style="padding: 24px;">
+          <div class="eyebrow" style="color:var(--ink);">Headcount</div>
+          <div class="num-mono" style="font-size: 40px;"><span class="insert">6</span> → <span class="insert">24</span></div>
+          <div style="font-size: 16px;">Lean by design</div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>Financials</span>
+        <span>Model in data room · all figures projections</span>
+        <span>11 / 12</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 12  THE ASK + EXIT ============ -->
+  <section class="dark" data-label="The Ask + Exit">
+    <div class="frame">
+      <div class="topbar">
+        <div class="lockup"><span class="bullet"></span>CHICKS</div>
+        <div class="crumb">12 · The Ask &amp; Exit</div>
+      </div>
+
+      <div class="row fill" style="gap: 64px;">
+        <div style="flex: 1;">
+          <div class="eyebrow" style="margin-bottom: 18px;">Pre-seed round</div>
+          <div class="display" style="font-size: 240px; line-height: 0.85; color: var(--bone);"><span class="insert" style="color:var(--bone);background:rgba(255,255,255,0.1);">$1.5M</span></div>
+          <div class="lede" style="color: #bdb6a6; max-width: 32ch; margin-top: 24px;">
+            18 months runway. Ship the next drop. Prove repeat. Launch Amazon FBA. Series A-ready at <span style="color: var(--bone);">$5M+ ARR</span>.
+          </div>
+
+          <div class="row" style="gap: 16px; margin-top: 48px; flex-wrap: wrap;">
+            <div class="chip" style="background: var(--audience); border-color: var(--audience); color: var(--ink);">Lead check open</div>
+            <div class="chip" style="border-color: var(--bone); color: var(--bone);">SAFE · <span class="insert" style="color:var(--bone);background:rgba(255,255,255,0.1);margin-left:6px;">$10M cap</span></div>
+          </div>
+        </div>
+
+        <div class="col fill" style="gap: 28px;">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 14px;">Use of funds</div>
+            <div style="display: grid; grid-template-columns: 1fr 80px; row-gap: 14px; column-gap: 16px;">
+              <div style="display:flex; align-items:center; gap:12px;"><span style="width:14px;height:14px;background:var(--audience);"></span>Inventory + Chicky Shake POs</div>
+              <div class="mono" style="text-align:right; color: var(--bone);">42%</div>
+              <div style="display:flex; align-items:center; gap:12px;"><span style="width:14px;height:14px;background:var(--bone);"></span>Marketing · creator + paid</div>
+              <div class="mono" style="text-align:right; color: var(--bone);">26%</div>
+              <div style="display:flex; align-items:center; gap:12px;"><span style="width:14px;height:14px;background:#bdb6a6;"></span>Sales · Amazon + retail</div>
+              <div class="mono" style="text-align:right; color: var(--bone);">20%</div>
+              <div style="display:flex; align-items:center; gap:12px;"><span style="width:14px;height:14px;background:#5C5A54;"></span>Team &amp; ops</div>
+              <div class="mono" style="text-align:right; color: var(--bone);">12%</div>
+            </div>
+            <div style="display: grid; grid-template-columns: 42fr 26fr 20fr 12fr; height: 18px; margin-top: 16px; gap: 2px;">
+              <div style="background: var(--audience);"></div>
+              <div style="background: var(--bone);"></div>
+              <div style="background: #bdb6a6;"></div>
+              <div style="background: #5C5A54;"></div>
+            </div>
+          </div>
+
+          <div class="card" style="background: transparent; border-color: var(--bone);">
+            <div class="eyebrow" style="color:#bdb6a6;">Exit horizon · 5–7 years</div>
+            <div class="grid-3" style="gap: 16px; margin-top: 8px;">
+              <div>
+                <div class="h3" style="color: var(--bone);">Strategic CPG sale</div>
+                <div class="muted" style="color:#a8a397;">Frito-Lay · Hershey · Mondelēz · Kellogg's</div>
+              </div>
+              <div>
+                <div class="h3" style="color: var(--bone);">Protein-snack roll-up</div>
+                <div class="muted" style="color:#a8a397;">Comparable: Quest → Mondelēz · RXBAR → Kellogg's</div>
+              </div>
+              <div>
+                <div class="h3" style="color: var(--bone);">IPO pathway</div>
+                <div class="muted" style="color:#a8a397;">At <span class="insert">$100M+</span> ARR with category leadership</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>The Ask</span>
+        <span><span class="insert">hello@eatchicks.com</span> &nbsp;·&nbsp; <span class="insert">eatchicks.com</span></span>
+        <span>12 / 12</span>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<template id="__bundler_thumbnail" data-bg-color="#0E0E0C">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0E0E0C"/>
+    <circle cx="600" cy="360" r="150" fill="#D4A02A"/>
+    <circle cx="730" cy="250" r="34" fill="#D9521A"/>
+    <rect x="430" y="560" width="340" height="34" rx="6" fill="#F5EFE0"/>
+    <rect x="490" y="620" width="220" height="20" rx="6" fill="#5C5A54"/>
+  </svg>
+</template>
+
+<div id="tweaks-root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="../assets/tweaks-panel.jsx"></script>
+<script type="text/babel" src="../assets/tweaks-app.jsx"></script>
+
+<script src="../assets/deck-stage.js"></script>
+</body>
+</html>

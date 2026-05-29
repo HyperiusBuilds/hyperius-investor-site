@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CHICKS — Investor One-Pager</title>
+<link rel="stylesheet" href="../assets/brand.css">
+<style>
+  :root { --audience: var(--punch); }
+
+  html, body {
+    margin: 0;
+    background: #2a2823;
+    font-family: var(--body);
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    background: var(--bone);
+    color: var(--ink);
+    margin: 24px auto;
+    padding: 0.42in 0.42in 0.36in;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    html, body { background: var(--bone); }
+    .page { margin: 0; box-shadow: none; }
+    .toolbar { display: none !important; }
+  }
+
+  .toolbar {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+    background: rgba(14,14,12,0.92);
+    padding: 10px 14px;
+    border-radius: 999px;
+    color: var(--bone);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    align-items: center;
+  }
+  .toolbar button {
+    background: var(--punch);
+    border: 0;
+    color: var(--ink);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .toolbar button:hover { background: #d9501e; }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-size: 84px;
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+  }
+  .wordmark .dot { color: var(--punch); }
+  .tag {
+    font-size: 12px;
+    color: var(--stone-2);
+    text-align: right;
+    line-height: 1.3;
+    max-width: 32ch;
+  }
+  .tag .eyebrow { font-size: 10px; }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+  .hero-title {
+    font-family: var(--display);
+    font-size: 44px;
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+  }
+  .hero-title .punch { color: var(--punch); }
+  .hero-sub {
+    font-size: 12px;
+    color: var(--stone-2);
+    max-width: 52ch;
+    line-height: 1.4;
+  }
+  .hero-bags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 4px;
+  }
+  .hero-bags .bag {
+    aspect-ratio: 3 / 4;
+    flex: 1;
+    padding: 12px 10px 10px;
+    border-radius: 4px 4px 6px 6px;
+    box-shadow: 0 6px 18px rgba(14,14,12,0.18);
+  }
+  .hero-bags .bag::before { display: none; }
+  .hero-bags .bag::after { inset: 6px 7px 7px; }
+  .hero-bags .bag .bag-brand { font-size: 18px; }
+  .hero-bags .bag .bag-callout { font-size: 14px; line-height: 1; }
+  .hero-bags .bag .bag-flav { font-size: 7px; letter-spacing: 0.12em; }
+
+  .section-title {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-2);
+    margin-bottom: 4px;
+  }
+  .section-h {
+    font-family: var(--display);
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin-bottom: 4px;
+    line-height: 1.05;
+  }
+  .body {
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .threecol {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .numbers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .num-cell {
+    padding: 10px 12px;
+    border-right: 1px solid rgba(14,14,12,0.18);
+  }
+  .num-cell:last-child { border-right: 0; }
+  .num-cell .lbl {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone-2);
+    margin-bottom: 4px;
+  }
+  .num-cell .val {
+    font-family: var(--display);
+    font-size: 32px;
+    line-height: 0.95;
+  }
+  .num-cell .val.punch { color: var(--punch); }
+
+  .bullet-row {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 8px;
+    align-items: baseline;
+    font-size: 11px;
+    line-height: 1.45;
+    padding: 4px 0;
+  }
+  .bullet-row .marker {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--punch);
+    font-weight: 600;
+  }
+  .bullet-row .marker.box::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--punch);
+  }
+
+  .ask {
+    background: var(--ink);
+    color: var(--bone);
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 1.4fr 1.6fr 1fr;
+    gap: 18px;
+    align-items: center;
+  }
+  .ask .big {
+    font-family: var(--display);
+    font-size: 56px;
+    line-height: 0.9;
+    color: var(--punch);
+  }
+  .ask .sub {
+    font-size: 10px;
+    color: #bdb6a6;
+    line-height: 1.4;
+    max-width: 36ch;
+  }
+  .ask .h {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #bdb6a6;
+    margin-bottom: 6px;
+  }
+
+  .foot-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1.5px solid var(--ink);
+    padding-top: 8px;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--stone-2);
+  }
+  .qr {
+    width: 56px; height: 56px;
+    background:
+      repeating-linear-gradient(0deg,
+        var(--ink) 0 3px,
+        var(--bone) 3px 6px),
+      repeating-linear-gradient(90deg,
+        rgba(14,14,12,0.4) 0 3px,
+        transparent 3px 6px),
+      var(--bone);
+    border: 1.2px solid var(--ink);
+    position: relative;
+  }
+  .qr::before, .qr::after, .qr > span {
+    content: '';
+    position: absolute;
+    width: 14px; height: 14px;
+    background: var(--bone);
+    border: 2px solid var(--ink);
+  }
+  .qr::before { top: 4px; left: 4px; }
+  .qr::after { top: 4px; right: 4px; }
+  .qr > span { bottom: 4px; left: 4px; }
+
+  .chip-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .one-chip {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .one-chip.solid { background: var(--ink); color: var(--bone); border-color: var(--ink); }
+  .one-chip.punch { background: var(--punch); border-color: var(--punch); color: var(--ink); }
+
+  .insert {
+    font-family: var(--mono);
+    font-weight: 500;
+    color: var(--punch-2);
+    background: rgba(229,90,43,0.08);
+    padding: 0 4px;
+    border-radius: 3px;
+    font-size: 0.95em;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a href="../" style="color:#F5EFE0;text-decoration:none;border-right:1px solid rgba(245,239,224,0.25);padding-right:12px;">&larr; CHICKS</a>
+  <span>One-Pager · Letter</span>
+  <button onclick="window.print()">Print / Save PDF</button>
+</div>
+
+<div class="page">
+
+  <div class="header">
+    <img src="../assets/chicks-logo.png" alt="CHICKS" style="height: 72px; width: auto; display: block; margin: -10px 0 -14px -16px; filter: drop-shadow(0 3px 10px rgba(212,160,42,0.18));">
+    <div class="tag">
+      <div class="eyebrow" style="margin-bottom: 4px;">Investor leave-behind · <span class="insert">May 2026</span></div>
+      The high-protein chicken chip — built for the snack aisle, the gym bag, and the feed.
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-title">A real chip,<br>at <span class="punch">24g protein.</span><br>Nobody else makes it.</div>
+      <div class="hero-sub">CHICKS is a chicken-chip snack with elite macros — 100 cal, 24g protein, 0g fat per 1 oz bag. Made in the USA with our co-manufacturing partner Chicky Shake. Three flavors at launch. Shipping the next drop Apr 2026; DTC + Amazon to follow. Asset-light by design.</div>
+    </div>
+    <div class="hero-bags">
+      <div class="bag salt" style="transform: rotate(-6deg);">
+        <div class="bag-brand">CHICKS<span style="color: var(--punch);">.</span></div>
+        <div>
+          <div class="bag-callout">Sea<br>Salt</div>
+          <div class="bag-flav">100 · 24g</div>
+        </div>
+      </div>
+      <div class="bag bbq" style="z-index: 2;">
+        <div class="bag-brand">CHICKS<span style="color: var(--punch);">.</span></div>
+        <div>
+          <div class="bag-callout">BBQ</div>
+          <div class="bag-flav">100 · 24g</div>
+        </div>
+      </div>
+      <div class="bag sco" style="transform: rotate(6deg);">
+        <div class="bag-brand">CHICKS<span>.</span></div>
+        <div>
+          <div class="bag-callout">S.C.<br>&amp; Onion</div>
+          <div class="bag-flav">100 · 24g</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="numbers">
+    <div class="num-cell">
+      <div class="lbl">Year 1 Revenue</div>
+      <div class="val">$<span class="insert" style="background:transparent; padding:0;">0.4M</span></div>
+    </div>
+    <div class="num-cell">
+      <div class="lbl">Year 3 Target</div>
+      <div class="val">$<span class="insert" style="background:transparent; padding:0;">2.5M</span></div>
+    </div>
+    <div class="num-cell">
+      <div class="lbl">Gross Margin · Y3</div>
+      <div class="val">50%</div>
+    </div>
+    <div class="num-cell">
+      <div class="lbl">Pre-Seed Ask</div>
+      <div class="val punch">$<span class="insert" style="background:transparent; padding:0;color:inherit;">1.5M</span></div>
+    </div>
+  </div>
+
+  <div class="twocol">
+    <div>
+      <div class="section-title">The Product</div>
+      <div class="section-h">Chicken chips · 1 oz bag</div>
+      <div class="body">
+        Real chip crunch, made from chicken breast + egg white, structured with banana powder and sweetened with stevia. <strong>100 cal · 24g protein · 0g fat · 1 oz (28.4g) · 9–12 mo shelf life.</strong> Three flavors: Sea Salt, Sour Cream &amp; Onion, BBQ. The highest protein-per-calorie ratio of any savory snack at retail.
+      </div>
+      <div class="chip-row" style="margin-top: 8px;">
+        <span class="one-chip">24g protein</span>
+        <span class="one-chip">100 cal</span>
+        <span class="one-chip">0g fat</span>
+        <span class="one-chip">Made in USA</span>
+      </div>
+    </div>
+    <div>
+      <div class="section-title">The Model</div>
+      <div class="section-h">White-label = capital efficient</div>
+      <div class="body">
+        Chicky Shake, our US co-manufacturing partner, produces every bag. We own brand, formula, channel and customer; they own the lines. Zero CAPEX. Cost-per-bag drops from <span class="insert">$1.58</span> at MOQ to <span class="insert">$0.92</span> at 3M+ bags. Every dollar goes to growth.
+      </div>
+      <div class="chip-row" style="margin-top: 8px;">
+        <span class="one-chip solid">Asset-light</span>
+        <span class="one-chip">USDA · FDA · SQF</span>
+        <span class="one-chip">3M bags/mo capacity</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="threecol">
+
+    <div>
+      <div class="section-title">The Channels</div>
+      <div class="section-h">DTC, Amazon, retail</div>
+      <div class="bullet-row"><span class="marker box"></span><span><strong>DTC</strong> — Shopify + TikTok Shop</span></div>
+      <div class="bullet-row"><span class="marker box"></span><span><strong>Amazon FBA</strong> — 12-pack hero SKU</span></div>
+      <div class="bullet-row"><span class="marker box"></span><span><strong>Nutrition retail</strong> — GNC, Vitamin Shoppe</span></div>
+      <div class="bullet-row"><span class="marker box"></span><span><strong>Mass + grocery</strong> — Target, Sprouts (Y2+)</span></div>
+    </div>
+
+    <div>
+      <div class="section-title">Why Now</div>
+      <div class="section-h">Tailwinds aligned</div>
+      <div class="bullet-row"><span class="marker">01</span><span><strong>71%</strong> of consumers seeking more protein daily (IFIC '24)</span></div>
+      <div class="bullet-row"><span class="marker">02</span><span><strong>8.6%</strong> CAGR · protein snack to $4.2B by 2035</span></div>
+      <div class="bullet-row"><span class="marker">03</span><span><strong>4×</strong> savory occasion size vs. sweet — under-served</span></div>
+    </div>
+
+    <div>
+      <div class="section-title">Why CHICKS</div>
+      <div class="section-h">Built to compound</div>
+      <div class="bullet-row"><span class="marker">01</span><span><strong>Highest protein density</strong> — 25%+ ahead of Quest</span></div>
+      <div class="bullet-row"><span class="marker">02</span><span><strong>True chip crunch</strong> — not a puff, not jerky</span></div>
+      <div class="bullet-row"><span class="marker">03</span><span><strong>Brand + community</strong> — DTC + creator-led demand</span></div>
+    </div>
+
+  </div>
+
+  <div class="ask">
+    <div>
+      <div class="h">The Ask</div>
+      <div class="big">$<span class="insert" style="background:rgba(255,255,255,0.1); color:inherit; padding: 0 4px;">1.5M</span></div>
+      <div class="sub" style="margin-top: 4px;">Pre-seed round · 18 months runway · Series A ready at <span class="insert" style="background:rgba(255,255,255,0.1); color:#bdb6a6;">$5M+ ARR</span></div>
+    </div>
+    <div>
+      <div class="h">What it unlocks</div>
+      <div class="body" style="color: var(--bone);">
+        Inventory + Chicky Shake POs · Amazon FBA launch · creator + paid marketing engine · nutrition retail rollout. <strong style="color: var(--bone);">EBITDA-positive Year 4</strong>. Use of funds: 42% inventory · 26% marketing · 20% sales · 12% team.
+      </div>
+    </div>
+    <div>
+      <div class="h">Open to</div>
+      <div class="chip-row">
+        <span class="one-chip punch">Equity</span>
+        <span class="one-chip solid" style="background: transparent; color: var(--bone); border-color: var(--bone);">Strategic</span>
+        <span class="one-chip solid" style="background: transparent; color: var(--bone); border-color: var(--bone);">JV</span>
+        <span class="one-chip solid" style="background: transparent; color: var(--bone); border-color: var(--bone);">Acquisition</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; gap: 16px; align-items: center; margin-top: auto;">
+    <div class="qr"><span></span></div>
+    <div style="flex: 1;">
+      <div class="foot-bar" style="border-top: 0; padding-top: 0;">
+        <div>
+          <div style="font-family: var(--display); font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink);">Get the full deck + data room</div>
+          <div class="mono" style="font-size: 10px; letter-spacing: 0.1em; margin-top: 4px; color: var(--stone-2);">
+            <span class="insert">hello@eatchicks.com</span> &nbsp; · &nbsp; <span class="insert">eatchicks.com/investors</span> &nbsp; · &nbsp; <span class="insert">@eatchicks</span>
+          </div>
+        </div>
+        <div style="font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone-2);">CONFIDENTIAL · NOT AN OFFER TO SELL SECURITIES</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<template id="__bundler_thumbnail" data-bg-color="#2a2823">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#2a2823"/>
+    <rect x="360" y="180" width="480" height="440" rx="10" fill="#F5EFE0"/>
+    <circle cx="600" cy="340" r="78" fill="#D4A02A"/>
+    <rect x="470" y="470" width="260" height="22" rx="5" fill="#0E0E0C"/>
+    <rect x="510" y="512" width="180" height="16" rx="5" fill="#D9521A"/>
+  </svg>
+</template>
+
+</body>
+</html>

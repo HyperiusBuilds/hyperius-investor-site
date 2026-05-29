@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CHICKS — Investor Materials</title>
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+  html, body {
+    margin: 0;
+    background: var(--ink);
+    min-height: 100vh;
+    color: var(--bone);
+    font-family: var(--body);
+  }
+  .wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 64px 56px 96px;
+  }
+
+  /* header */
+  .hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1.5px solid var(--bone);
+    padding-bottom: 28px;
+    margin-bottom: 56px;
+  }
+  .wordmark {
+    font-family: var(--display);
+    font-size: 120px;
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+  }
+  .wordmark .dot { color: var(--punch); }
+  .meta {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #bdb6a6;
+    line-height: 1.6;
+  }
+  .meta strong { color: var(--bone); font-weight: 500; }
+
+  .intro {
+    margin-bottom: 64px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .intro h1 {
+    font-family: var(--display);
+    font-size: 96px;
+    line-height: 0.88;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+  .intro h1 .punch { color: var(--punch); }
+  .intro p {
+    color: #bdb6a6;
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 50ch;
+  }
+
+  /* tiles */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 80px;
+  }
+  .tile {
+    background: var(--bone);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    min-height: 360px;
+  }
+  .tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(229,90,43,0.18);
+  }
+  .tile.audience-pe { --tile: #1F3A5F; }
+  .tile.audience-vc { --tile: var(--gold); }
+  .tile.audience-fb { --tile: #1A52A8; }
+  .tile.audience-op { --tile: var(--ink); }
+
+  .tile .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tile .tag .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--tile);
+    display: inline-block;
+    margin-right: 8px;
+  }
+  .tile h2 {
+    font-family: var(--display);
+    font-size: 56px;
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+  .tile .angle {
+    font-size: 17px;
+    color: var(--ink);
+    max-width: 38ch;
+    line-height: 1.45;
+  }
+  .tile .angle strong { color: var(--tile); }
+  .tile .focus {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+    padding-right: 120px;
+  }
+  .tile .focus .c {
+    padding: 6px 12px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .tile .open {
+    position: absolute;
+    bottom: 28px;
+    right: 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--tile);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .tile .open::after {
+    content: '↗';
+    font-size: 18px;
+  }
+
+  /* gaps section */
+  .gaps {
+    background: #1a1815;
+    padding: 56px;
+    border-top: 1.5px solid var(--bone);
+  }
+  .gaps h3 {
+    font-family: var(--display);
+    font-size: 48px;
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin: 0 0 14px;
+  }
+  .gaps h3 .punch { color: var(--punch); }
+  .gaps .lead {
+    color: #bdb6a6;
+    font-size: 16px;
+    max-width: 80ch;
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+  .gap-cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .gap-card {
+    border: 1px solid #3a362f;
+    padding: 28px;
+  }
+  .gap-card h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--punch);
+    margin: 0 0 6px;
+  }
+  .gap-card .name {
+    font-family: var(--display);
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    letter-spacing: -0.005em;
+  }
+  .gap-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .gap-card li {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #d6d0c0;
+    align-items: baseline;
+  }
+  .gap-card li::before {
+    content: '→';
+    color: var(--punch);
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .gap-card li {
+    background: none;
+  }
+  .gap-card li code {
+    font-family: var(--mono);
+    font-size: 13px;
+    background: rgba(229,90,43,0.12);
+    color: #ffaa7a;
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+
+  /* foot */
+  .siteft {
+    margin-top: 64px;
+    padding-top: 28px;
+    border-top: 1.5px solid #3a362f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8d877a;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <img src="assets/chicks-logo.png" alt="CHICKS" style="height: 120px; width: auto; display: block; margin: -16px 0 -28px -24px; filter: drop-shadow(0 6px 20px rgba(212,160,42,0.28));">
+    <div class="meta">
+      <strong>Investor Materials</strong><br>
+      Three decks · one leave-behind<br>
+      Confidential · May 2026
+    </div>
+  </div>
+
+  <div class="intro">
+    <h1>Four<br>deliverables.<br>One <span class="punch">chicken chip</span>.</h1>
+    <p>CHICKS is the high-protein chicken-chip brand — 100 cal, 24g protein, 0g fat per bag, made in the USA with our co-manufacturing partner Chicky Shake. Each deck is tuned to what its audience evaluates: growth for VCs, returns for PE, synergy for F&amp;B. The one-pager works as a universal leave-behind.</p>
+  </div>
+
+  <!-- TILES -->
+  <div class="grid">
+
+    <a class="tile audience-vc" href="vc-pitch-deck/">
+      <div class="tag"><span><span class="dot"></span>Deliverable 01</span><span>12 slides · 1920×1080</span></div>
+      <h2>VC Pitch<br>Deck</h2>
+      <div class="angle"><strong>Growth angle.</strong> Real chip + elite macros = a new subcategory. TAM, hockey-stick, LTV compounding, exit pathway.</div>
+      <div class="focus">
+        <span class="c">TAM/SAM/SOM</span>
+        <span class="c">Hockey stick</span>
+        <span class="c">LTV:CAC</span>
+        <span class="c">Exit pathway</span>
+      </div>
+      <span class="open">Open deck</span>
+    </a>
+
+    <a class="tile audience-pe" href="pe-pitch-deck/">
+      <div class="tag"><span><span class="dot"></span>Deliverable 02</span><span>12 slides · 1920×1080</span></div>
+      <h2>PE Pitch<br>Deck</h2>
+      <div class="angle"><strong>Returns angle.</strong> Proprietary chip formulation, asset-light US production via Chicky Shake, EBITDA path Year 3.</div>
+      <div class="focus">
+        <span class="c">EBITDA path</span>
+        <span class="c">Margin waterfall</span>
+        <span class="c">IRR · MoIC</span>
+        <span class="c">Risk register</span>
+      </div>
+      <span class="open">Open deck</span>
+    </a>
+
+    <a class="tile audience-fb" href="fb-strategic-deck/">
+      <div class="tag"><span><span class="dot"></span>Deliverable 03</span><span>12 slides · 1920×1080</span></div>
+      <h2>F&amp;B<br>Strategic Deck</h2>
+      <div class="angle"><strong>Synergy angle.</strong> Plug the protein hole in your snack portfolio. Four partnership structures, not just acquisition.</div>
+      <div class="focus">
+        <span class="c">Strategic fit</span>
+        <span class="c">Channel map</span>
+        <span class="c">JV · co-distro</span>
+        <span class="c">Consumer overlap</span>
+      </div>
+      <span class="open">Open deck</span>
+    </a>
+
+    <a class="tile audience-op" href="investor-one-pager/">
+      <div class="tag"><span><span class="dot"></span>Deliverable 04</span><span>1 page · US Letter</span></div>
+      <h2>Investor<br>One-Pager</h2>
+      <div class="angle"><strong>Universal leave-behind.</strong> Print-ready PDF. Works for any investor type — teaser at the top of conversations, recap at the end.</div>
+      <div class="focus">
+        <span class="c">Print-ready</span>
+        <span class="c">Letter size</span>
+        <span class="c">QR placeholder</span>
+        <span class="c">CTA</span>
+      </div>
+      <span class="open">Open one-pager</span>
+    </a>
+
+  </div>
+
+  <!-- GAPS -->
+  <div class="gaps">
+    <h3>What's <span class="punch">confirmed</span> · what's <span class="punch">still open</span>.</h3>
+    <div class="lead">Product spec, flavors, logo, bag art, the competitive matrix, market sizing and the <code style="color:#ffaa7a; background: rgba(229,90,43,0.12); padding: 1px 6px; border-radius: 3px; font-family: var(--mono); font-size: 14px;">$2.5M Year-3 target</code> are now baked in from the source deck. Everything still <code style="color:#ffaa7a; background: rgba(229,90,43,0.12); padding: 1px 6px; border-radius: 3px; font-family: var(--mono); font-size: 14px;">orange-highlighted</code> in the decks is a figure to confirm before sending. Grouped below.</div>
+
+    <div class="gap-cols">
+
+      <div class="gap-card">
+        <h4>Confirmed · now in the decks</h4>
+        <div class="name">Locked facts</div>
+        <ul>
+          <li>Gold CHICKS logo + real Sea Salt / S.C. &amp; Onion / BBQ bag art</li>
+          <li>Spec: 100 cal · 24g protein · 0g fat · 1 oz (28.4g) · 9–12 mo shelf</li>
+          <li>Ingredients: chicken breast, egg white, seasoning, banana powder, stevia</li>
+          <li>Competitive density: CHICKS 24g vs Quest 19g, Barebells 15g, Chomps 12g</li>
+          <li>DTC pricing: 12-pack $52.99 · 6-pack $28.99 · variety-12 $54.99</li>
+          <li>Market: $1.8B → $4.2B by 2035 · 8.6% CAGR · 71% want more protein</li>
+          <li>Pre-seed stage · $2.5M Year-3 revenue target · first drop Apr 15, 2026</li>
+        </ul>
+      </div>
+
+      <div class="gap-card">
+        <h4>All deliverables · brand basics</h4>
+        <div class="name">Still open</div>
+        <ul>
+          <li>Founder name, headshot, bio for cover &amp; F&amp;B contact card</li>
+          <li>Confirm final domain (eatchicks.com placeholder), email aliases, handles</li>
+          <li>Working QR code for one-pager → preferred destination URL</li>
+          <li>Lifestyle / UGC photography for the brand-and-community slide</li>
+          <li>Confirm Chicky Shake is the named co-manufacturer publicly</li>
+        </ul>
+      </div>
+
+      <div class="gap-card">
+        <h4>Deliverable 01 · VC Pitch Deck</h4>
+        <div class="name">Growth numbers</div>
+        <ul>
+          <li>Pre-seed raise amount — currently <code>$1.5M</code> placeholder</li>
+          <li>SAFE cap — currently <code>$10M</code> placeholder</li>
+          <li>Revenue ramp Y1/Y2/Y4/Y5 around the known <code>$2.5M</code> Y3 anchor</li>
+          <li>CAC / LTV / payback — confirm vs. &lt;$50 CAC, 3:1+ benchmark</li>
+          <li>Per-order waterfall: COGS per 12-pack, fulfillment, CAC</li>
+          <li>TikTok follower count + pre-order / waitlist totals</li>
+          <li>Use-of-funds split if different from 42/26/20/12</li>
+          <li>Gross-margin &amp; EBITDA trajectory (when does Y4 turn positive?)</li>
+        </ul>
+      </div>
+
+      <div class="gap-card">
+        <h4>Deliverable 02 · PE Pitch Deck</h4>
+        <div class="name">Returns numbers</div>
+        <ul>
+          <li>Growth-round size &amp; pre-money — <code>$3M</code> / <code>$12M</code> placeholders</li>
+          <li>Target IRR / MoIC — <code>28%</code> / <code>3×</code> to validate</li>
+          <li>Subscription &amp; repeat targets (38% / &gt;35%)</li>
+          <li>Chicky Shake MOQ, true landed cost per bag, capacity ceiling</li>
+          <li>Margin waterfall — every line item ($19 COGS, $7.50 fulfillment…)</li>
+          <li>Projected post-launch monthly ramp (real figures)</li>
+          <li>Three exit scenarios — EV figures and multiples</li>
+          <li>Retail pilot confirmations — GNC, Vitamin Shoppe LOIs</li>
+        </ul>
+      </div>
+
+      <div class="gap-card">
+        <h4>Deliverable 03 · F&amp;B Strategic Deck</h4>
+        <div class="name">Synergy numbers</div>
+        <ul>
+          <li>Total addressable door count — verify <code>65,300</code> assumption</li>
+          <li>Buyer demographic data (age, income, NPS, cross-shop list)</li>
+          <li>Purchase occasion mix (36/28/22/14 placeholder)</li>
+          <li>Cross-shop overlap % with target partner portfolio (64% placeholder)</li>
+          <li>Per-door annual revenue assumption: <code>14 bags/wk × 52</code></li>
+          <li>Standalone vs. with-partner Y5 uplift (now <code>$8.5M</code> → <code>$15M</code>)</li>
+          <li>Confirm Chicky Shake transferable formula + IP ownership</li>
+        </ul>
+      </div>
+
+      <div class="gap-card">
+        <h4>Cross-cutting · data room</h4>
+        <div class="name">Supporting materials</div>
+        <ul>
+          <li>Chicky Shake co-pack contract / term sheet</li>
+          <li>Proprietary formula documentation + IP / patent status</li>
+          <li>USDA + FDA labeling sign-off</li>
+          <li>NPS methodology + sample size (cited 71)</li>
+          <li>TikTok / Instagram impression analytics</li>
+          <li>Source citations: SPINS, NielsenIQ, Mintel</li>
+          <li>Full P&amp;L spreadsheet + scenario model · cap table</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="siteft">
+    <span>CHICKS · Investor Materials Hub</span>
+    <span>Confidential · not an offer to sell securities</span>
+  </div>
+
+</div>
+
+
+</body>
+</html>
