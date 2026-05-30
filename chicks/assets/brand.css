@@ -391,15 +391,20 @@ ul { list-style: none; }
 
 /* ---- INSERT placeholder ---- */
 .insert {
+  display: inline-block;
   font-family: var(--mono);
   font-size: 0.85em;
   font-weight: 500;
+  line-height: 1.05;
   letter-spacing: 0;
   color: var(--bbq-red);
   background: rgba(217,82,26,0.10);
-  padding: 0 6px;
-  border-radius: 4px;
+  padding: 0.02em 0.2em;
+  border-radius: 0.12em;
   white-space: nowrap;
+  vertical-align: baseline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* ---- divider slide ---- */
