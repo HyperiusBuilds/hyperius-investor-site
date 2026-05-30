@@ -1,0 +1,176 @@
+/* ============================================================
+   DRIPTEIN — Shared Brand System
+   Palette: "Syrup Pour" (Direction A)  ·  Type: Anton / Archivo / Space Mono (Direction B)
+   Used across: hub, VC deck, PE deck, F&B deck, one-pager
+   ============================================================ */
+
+:root{
+  /* --- core palette --- */
+  --ink:        #241310;   /* espresso — primary dark */
+  --ink-2:      #341c12;   /* raised brown (cards / gradient stop) */
+  --ink-3:      #46271a;   /* lighter brown */
+  --cream:      #F4E8D2;   /* primary light / paper */
+  --cream-2:    #EADDC2;   /* deeper cream (panels on cream) */
+  --syrup:      #C9772E;   /* PRIMARY accent — syrup amber */
+  --syrup-lt:   #E0913F;   /* accent for on-dark text/lines */
+  --cinnamon:   #A23A1C;   /* SECONDARY accent — cinnamon rust */
+  --oat:        #93826C;   /* warm neutral */
+  --oat-lt:     #B6A78F;
+
+  /* --- semantic --- */
+  --line-on-ink:   rgba(244,232,210,.16);
+  --line-on-cream: rgba(36,19,16,.14);
+  --muted-on-ink:  #c9b9a3;
+  --muted-on-cream:#6f5b48;
+
+  /* --- type families --- */
+  --font-display: 'Anton', 'Archivo', sans-serif;
+  --font-body:    'Archivo', sans-serif;
+  --font-mono:    'Space Mono', ui-monospace, monospace;
+
+  /* --- deck type scale (1920×1080) --- */
+  --t-hero:    158px;  /* giant stat numerals */
+  --t-display: 116px;  /* cover headline */
+  --t-title:   80px;   /* slide titles */
+  --t-subtitle:46px;
+  --t-lead:    38px;
+  --t-body:    29px;
+  --t-small:   25px;
+  --t-mono:    24px;   /* eyebrows / labels (deck floor = 24) */
+
+  /* --- deck spacing --- */
+  --pad-x:      120px;
+  --pad-top:    96px;
+  --pad-bottom: 84px;
+  --gap-title:  44px;
+  --gap-item:   26px;
+}
+
+/* ===================== DECK FRAME ===================== */
+deck-stage:not(:defined){visibility:hidden}
+deck-stage{background:#100a07;}
+
+.s{
+  box-sizing:border-box;
+  padding:var(--pad-top) var(--pad-x) var(--pad-bottom);
+  display:flex; flex-direction:column;
+  font-family:var(--font-body);
+  background:var(--cream); color:var(--ink);
+  overflow:hidden; position:relative;
+}
+.bg-ink{background:var(--ink); color:var(--cream);}
+.bg-ink2{background:radial-gradient(120% 130% at 18% 0%, #43261a 0%, var(--ink) 58%); color:var(--cream);}
+.bg-cream{background:var(--cream); color:var(--ink);}
+.bg-syrup{background:var(--syrup); color:#2a1608;}
+.bg-cinnamon{background:var(--cinnamon); color:#fbe9df;}
+
+/* reset UA margins inside slides — inline/class margins still win (:where = 0 specificity) */
+.s :where(h1,h2,h3,h4,h5,p,ul,ol,figure){margin:0;}
+
+/* ===================== TYPE ===================== */
+.eyebrow{
+  font-family:var(--font-mono); font-size:var(--t-mono);
+  letter-spacing:.30em; text-transform:uppercase; color:var(--syrup);
+  font-weight:700;
+}
+.bg-ink .eyebrow,.bg-ink2 .eyebrow{color:var(--syrup-lt);}
+.bg-syrup .eyebrow{color:#5a2f10;}
+.bg-cinnamon .eyebrow{color:#f4c9b4;}
+
+.title{
+  font-family:var(--font-display); font-weight:400;
+  font-size:var(--t-title); line-height:.94; text-transform:uppercase;
+  letter-spacing:.005em; text-wrap:balance;
+}
+.display{
+  font-family:var(--font-display); font-weight:400;
+  font-size:var(--t-display); line-height:.9; text-transform:uppercase;
+  letter-spacing:.004em;
+}
+.subtitle{font-family:var(--font-display);font-weight:400;font-size:var(--t-subtitle);text-transform:uppercase;line-height:1;}
+.lead{font-size:var(--t-lead); line-height:1.34; font-weight:400; color:var(--muted-on-cream); text-wrap:pretty;}
+.bg-ink .lead,.bg-ink2 .lead{color:var(--muted-on-ink);}
+.body{font-size:var(--t-body); line-height:1.46; font-weight:400; text-wrap:pretty;}
+.small{font-size:var(--t-small); line-height:1.4;}
+.mono{font-family:var(--font-mono); font-size:var(--t-mono); letter-spacing:.04em;}
+.accent{color:var(--syrup);}
+.bg-ink .accent,.bg-ink2 .accent{color:var(--syrup-lt);}
+.num{font-family:var(--font-display);font-weight:400;font-size:var(--t-hero);line-height:.82;letter-spacing:.005em;}
+
+/* ===================== STRUCTURE HELPERS ===================== */
+.topbar{display:flex;align-items:center;justify-content:space-between;}
+.spread{flex:1;display:flex;flex-direction:column;justify-content:center;}
+.row{display:flex;}
+.col{display:flex;flex-direction:column;}
+.between{justify-content:space-between;}
+.center{align-items:center;}
+.mt-auto{margin-top:auto;}
+.gap-title{gap:var(--gap-title);}
+.gap-item{gap:var(--gap-item);}
+
+.rule{height:2px;background:var(--line-on-cream);border:0;width:100%;}
+.bg-ink .rule,.bg-ink2 .rule{background:var(--line-on-ink);}
+
+.mark{height:54px;width:auto;opacity:.95;}
+.section-num{font-family:var(--font-mono);font-size:var(--t-mono);letter-spacing:.2em;opacity:.7;}
+
+/* chips */
+.chip{
+  font-family:var(--font-mono);font-size:21px;letter-spacing:.12em;text-transform:uppercase;
+  padding:10px 18px;border:1.5px solid var(--line-on-cream);border-radius:999px;white-space:nowrap;
+}
+.bg-ink .chip,.bg-ink2 .chip{border-color:var(--line-on-ink);}
+.chip.solid{background:var(--syrup);border-color:var(--syrup);color:#2a1608;}
+
+/* stat blocks */
+.stat .k{font-family:var(--font-mono);font-size:23px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-on-cream);margin-top:14px;}
+.bg-ink .stat .k,.bg-ink2 .stat .k{color:var(--muted-on-ink);}
+.bg-syrup .stat .k{color:#5a2f10;}
+
+/* data cards (kept square-cornered, no left-accent-border trope) */
+.panel{background:var(--cream-2);padding:38px 40px;}
+.bg-ink .panel,.bg-ink2 .panel{background:rgba(244,232,210,.06);}
+
+/* image placeholder slot — user drops real renders here */
+.ph{
+  position:relative;background:var(--cream-2);overflow:hidden;
+  display:flex;align-items:flex-end;
+  background-image:repeating-linear-gradient(45deg, rgba(36,19,16,.05) 0 2px, transparent 2px 16px);
+  border:1.5px dashed rgba(36,19,16,.22);
+}
+.bg-ink .ph,.bg-ink2 .ph{background:rgba(244,232,210,.04);border-color:rgba(244,232,210,.22);
+  background-image:repeating-linear-gradient(45deg, rgba(244,232,210,.05) 0 2px, transparent 2px 16px);}
+.ph .ph-tag{
+  font-family:var(--font-mono);font-size:20px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted-on-cream);padding:16px 18px;background:rgba(244,232,210,.7);margin:14px;border-radius:6px;
+}
+.bg-ink .ph .ph-tag,.bg-ink2 .ph .ph-tag{color:var(--muted-on-ink);background:rgba(20,12,8,.55);}
+
+/* TBD pill — used for pre-development placeholders */
+.tbd{
+  display:inline-block;font-family:var(--font-mono);font-size:.62em;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--cinnamon);border:1.5px solid currentColor;border-radius:6px;
+  padding:.18em .5em;vertical-align:middle;line-height:1;font-weight:700;
+}
+.bg-ink .tbd,.bg-ink2 .tbd{color:var(--syrup-lt);}
+
+/* page footer (deck) */
+.pagefoot{font-family:var(--font-mono);font-size:21px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted-on-cream);display:flex;justify-content:space-between;align-items:center;}
+.bg-ink .pagefoot,.bg-ink2 .pagefoot{color:var(--muted-on-ink);}
+
+/* source/footnote caption */
+.src{font-family:var(--font-mono);font-size:24px;letter-spacing:.04em;color:var(--oat);line-height:1.4;}
+
+/* ===================== BACK-LINK PILL (decks) ===================== */
+.backlink{
+  position:fixed;top:18px;right:18px;z-index:40;
+  display:flex;align-items:center;gap:10px;text-decoration:none;
+  font-family:var(--font-mono);font-size:14px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--cream);background:rgba(36,19,16,.82);backdrop-filter:blur(6px);
+  border:1px solid rgba(244,232,210,.22);border-radius:999px;padding:9px 16px 9px 12px;
+  transition:background .18s, transform .18s;
+}
+.backlink:hover{background:var(--cinnamon);transform:translateY(-1px);}
+.backlink img{height:20px;width:auto;}
+@media print{.backlink{display:none!important;}}

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRIPTEIN — PE Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/brand.css">
+<style>
+  html,body{margin:0;background:#100a07;}
+  .cover-bottle{position:absolute;right:130px;bottom:-34px;height:112%;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5));pointer-events:none;z-index:1;}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .metric{background:var(--cream-2);padding:34px 32px;display:flex;flex-direction:column;gap:8px;}
+  .bg-ink .metric,.bg-ink2 .metric{background:rgba(244,232,210,.06);}
+  /* margin bridge */
+  .bridge{display:flex;flex-direction:column;gap:16px;}
+  .bridge .seg{display:flex;align-items:center;gap:24px;}
+  .bridge .lab{min-width:430px;font-size:27px;}
+  .bridge .track{flex:1;height:48px;background:var(--cream-2);position:relative;}
+  .bridge .fill{height:100%;}
+  /* data table */
+  .tbl{width:100%;border-collapse:collapse;font-size:28px;}
+  .tbl th{font-family:var(--font-mono);font-size:22px;letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:18px 22px;color:var(--muted-on-cream);border-bottom:2px solid var(--line-on-cream);}
+  .bg-ink2 .tbl th,.bg-ink .tbl th{color:var(--muted-on-ink);border-color:var(--line-on-ink);}
+  .tbl td{padding:20px 22px;border-bottom:1px solid var(--line-on-cream);vertical-align:top;}
+  .bg-ink2 .tbl td,.bg-ink .tbl td{border-color:var(--line-on-ink);}
+  .tbl tr td:first-child{font-family:var(--font-display);text-transform:uppercase;font-size:30px;white-space:nowrap;}
+  .tbl .hi td{background:rgba(201,119,46,.12);}
+  /* partner diagram */
+  .flow{display:flex;align-items:stretch;gap:0;flex:1;}
+  .node{flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;padding:34px 30px;background:rgba(244,232,210,.06);}
+  .arr{display:flex;align-items:center;justify-content:center;width:70px;font-family:var(--font-display);font-size:44px;color:var(--syrup-lt);}
+  /* ebitda chart */
+  .chartwrap{flex:1;position:relative;margin-top:20px;}
+  .leg{display:flex;gap:36px;font-family:var(--font-mono);font-size:22px;letter-spacing:.08em;}
+  .leg b{display:inline-block;width:26px;height:6px;vertical-align:middle;margin-right:10px;}
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="#241310"/>
+  <path d="M50 24 C50 24 70 48 70 60 a20 20 0 1 1 -40 0 C30 48 50 24 50 24 Z" fill="none" stroke="#C9772E" stroke-width="4.5"/>
+  <text x="50" y="72" font-family="Anton, Archivo, sans-serif" font-size="30" fill="#F4E8D2" text-anchor="middle">D</text>
+</svg>
+</template>
+
+
+<a class="backlink" href="../index.html"><img src="../assets/img/mark-light.png" alt="">← DRIPTEIN</a>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 COVER -->
+  <section class="s bg-ink2" data-label="Cover">
+    <div class="topbar" style="position:relative;z-index:2;">
+      <img class="mark" src="../assets/img/wordmark-light.png" alt="DRIPTEIN" style="height:60px;width:auto;">
+    </div>
+    <div class="spread" style="justify-content:center;position:relative;z-index:2;">
+      <div class="eyebrow">Private investment overview</div>
+      <h1 class="display" style="margin:22px 0 26px;max-width:64%;">An asset-light bet on <span class="accent">pourable protein.</span></h1>
+      <p class="lead" style="max-width:44%;">DRIPTEIN is a pre-development, high-protein whey syrup positioned for durable repeat consumption and an asset-light, co-manufactured cost base.</p>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:26px;position:relative;z-index:2;">
+      <div class="col" style="gap:6px;">
+        <span style="color:var(--syrup-lt);font-size:24px;">$1M Pre-Seed · returns overview</span>
+        <span style="font-size:21px;">PE Pitch Deck · May 2026 · A Hyperius Holdings venture · Currently in development</span>
+      </div>
+    </div>
+    <img class="cover-bottle" src="../assets/img/bottle-cinnamon-cut.png" alt="DRIPTEIN bottle">
+  </section>
+
+  <!-- 02 THESIS -->
+  <section class="s bg-cream" data-label="Thesis">
+    <div class="topbar"><div class="section-num">01 — THESIS</div><div class="mono" style="color:var(--muted-on-cream)">WHY DRIPTEIN</div></div>
+    <h2 class="title" style="margin:24px 0 40px;max-width:80%;">A high-margin format in a category that keeps buying</h2>
+    <div class="metrics" style="flex:1;align-content:center;">
+      <div class="metric"><div class="mono accent">01 — DURABLE DEMAND</div><div class="subtitle">Repeat by design</div><div class="small" style="color:var(--muted-on-cream)">A daily-ritual consumable — poured over food people already eat — drives habitual reorder.</div></div>
+      <div class="metric"><div class="mono accent">02 — ASSET-LIGHT</div><div class="subtitle">No owned plant</div><div class="small" style="color:var(--muted-on-cream)">Co-manufactured production and 3PL fulfillment keep capital intensity low and scalable.</div></div>
+      <div class="metric"><div class="mono accent">03 — MARGIN HEADROOM</div><div class="subtitle">Branded premium</div><div class="small" style="color:var(--muted-on-cream)">A differentiated "first to pour" position supports pricing power over commodity protein.</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:24px;"><span>Pre-development — thesis pillars, not current performance</span><span>02</span></div>
+  </section>
+
+  <!-- 03 PRODUCT -->
+  <section class="s bg-ink2" data-label="Product">
+    <div class="topbar"><div class="section-num">02 — THE PRODUCT</div><div class="mono" style="color:var(--muted-on-ink)">WHAT WE SELL</div></div>
+    <div class="row" style="flex:1;gap:60px;align-items:center;">
+      <div class="col" style="flex:1.05;gap:26px;">
+        <h2 class="title" style="font-size:70px;">A whey protein syrup you pour, not shake</h2>
+        <div class="row" style="gap:48px;">
+          <div class="stat col"><div class="num accent" style="font-size:112px;">&gt;20g</div><div class="k" style="margin-top:6px;">Protein / serving</div></div>
+          <div class="stat col"><div class="num" style="font-size:112px;">~100</div><div class="k" style="margin-top:6px;">Calories / serving</div></div>
+        </div>
+        <div class="row" style="gap:12px;flex-wrap:wrap;"><span class="chip">Chocolate Rush</span><span class="chip">Cinnamon Boost</span><span class="chip">Vanilla Surge</span></div>
+        <p class="small" style="color:var(--muted-on-ink);max-width:90%;">Full nutrition panel, format &amp; price <span class="tbd">TBD post-development</span></p>
+      </div>
+      <div class="row" style="flex:.95;align-items:flex-end;justify-content:center;gap:6px;">
+        <img src="../assets/img/bottle-chocolate-cut.png" alt="" style="height:560px;filter:drop-shadow(0 20px 34px rgba(0,0,0,.45));">
+        <img src="../assets/img/bottle-vanilla-cut.png" alt="" style="height:500px;filter:drop-shadow(0 20px 34px rgba(0,0,0,.45));">
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 MARKET & DURABILITY -->
+  <section class="s bg-cream" data-label="Market">
+    <div class="topbar"><div class="section-num">03 — MARKET</div><div class="mono" style="color:var(--muted-on-cream)">SIZE &amp; DURABILITY</div></div>
+    <h2 class="title" style="margin:22px 0 36px;max-width:76%;">A large category with structural, repeat demand</h2>
+    <div class="row" style="flex:1;gap:48px;align-items:center;">
+      <div class="col" style="flex:1;gap:30px;">
+        <div class="stat col"><div class="num accent" style="font-size:130px;">$66B</div><div class="k">Global protein supplements by 2034 (9.1% CAGR)</div></div>
+        <div class="stat col"><div class="num" style="font-size:130px;">~$480B</div><div class="k">U.S. wellness market, +5–10% / yr</div></div>
+      </div>
+      <div class="col gap-item" style="flex:1;">
+        <div class="panel"><div class="subtitle accent" style="font-size:34px;">Consumable, not durable</div><div class="small" style="color:var(--muted-on-cream);margin-top:8px;">Every pour is consumed — built-in replenishment, not a one-time purchase.</div></div>
+        <div class="panel"><div class="subtitle accent" style="font-size:34px;">Habit, not hype</div><div class="small" style="color:var(--muted-on-cream);margin-top:8px;">Anchored to existing daily routines (breakfast, coffee), reducing fad risk.</div></div>
+        <div class="panel"><div class="subtitle accent" style="font-size:34px;">Mainstream, not niche</div><div class="small" style="color:var(--muted-on-cream);margin-top:8px;">Protein demand spans demographics — broad, non-cyclical pull.</div></div>
+      </div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:22px;"><span class="src">Category figures — Grand View Research; McKinsey. Not DRIPTEIN revenue.</span><span>04</span></div>
+  </section>
+
+  <!-- 05 BUSINESS MODEL -->
+  <section class="s bg-ink" data-label="Business model">
+    <div class="topbar"><div class="section-num">04 — BUSINESS MODEL</div><div class="mono" style="color:var(--muted-on-ink)">RECURRING-FIRST</div></div>
+    <h2 class="title" style="margin:22px 0 36px;">Recurring revenue, multiple channels</h2>
+    <div class="metrics" style="grid-template-columns:repeat(4,1fr);flex:1;align-content:center;">
+      <div class="metric"><div class="mono accent">CORE</div><div class="subtitle">DTC subscription</div><div class="small" style="color:var(--muted-on-ink)">Predictable recurring revenue &amp; first-party data</div></div>
+      <div class="metric"><div class="mono accent">REACH</div><div class="subtitle">Marketplace</div><div class="small" style="color:var(--muted-on-ink)">Amazon &amp; protein marketplaces for low-CAC volume</div></div>
+      <div class="metric"><div class="mono accent">SCALE</div><div class="subtitle">Retail wholesale</div><div class="small" style="color:var(--muted-on-ink)">Grocery, club &amp; specialty distribution at scale</div></div>
+      <div class="metric"><div class="mono accent">MARGIN</div><div class="subtitle">Foodservice</div><div class="small" style="color:var(--muted-on-ink)">Café &amp; gym pour-stations — high-frequency usage</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>Channel mix &amp; pricing <span class="tbd">TBD post-development</span></span><span>05</span></div>
+  </section>
+
+  <!-- 06 MARGIN STRUCTURE -->
+  <section class="s bg-cream" data-label="Margin structure">
+    <div class="topbar"><div class="section-num">05 — MARGIN STRUCTURE</div><div class="mono" style="color:var(--muted-on-cream)">ILLUSTRATIVE · % TBD</div></div>
+    <h2 class="title" style="margin:20px 0 34px;">From shelf price to contribution</h2>
+    <div class="bridge" style="flex:1;justify-content:center;">
+      <div class="seg"><div class="lab"><b>Net price / bottle</b> <span class="tbd">TBD</span></div><div class="track"><div class="fill" style="width:100%;background:var(--ink);"></div></div></div>
+      <div class="seg"><div class="lab">– Ingredients &amp; whey</div><div class="track"><div class="fill" style="width:34%;background:var(--cinnamon);"></div></div></div>
+      <div class="seg"><div class="lab">– Packaging &amp; bottle</div><div class="track"><div class="fill" style="width:16%;background:var(--oat);"></div></div></div>
+      <div class="seg"><div class="lab">– Co-manufacturing &amp; fill</div><div class="track"><div class="fill" style="width:14%;background:var(--oat-lt);"></div></div></div>
+      <div class="seg"><div class="lab">– Fulfillment &amp; fees</div><div class="track"><div class="fill" style="width:12%;background:#c9b79c;"></div></div></div>
+      <div class="seg"><div class="lab"><b>= Contribution / bottle</b></div><div class="track"><div class="fill" style="width:24%;background:var(--syrup);"></div></div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:22px;"><span class="src">Illustrative cost structure for shape only — every line finalized post-development &amp; co-man quotes</span><span>06</span></div>
+  </section>
+
+  <!-- 07 UNIT ECONOMICS -->
+  <section class="s bg-ink2" data-label="Unit economics">
+    <div class="topbar"><div class="section-num">06 — UNIT ECONOMICS</div><div class="mono" style="color:var(--syrup-lt)">ASSUMPTIONS</div></div>
+    <h2 class="title" style="margin:20px 0 38px;max-width:74%;">Designed to recover CAC fast, then compound</h2>
+    <div class="metrics" style="flex:1;align-content:center;">
+      <div class="metric"><div class="mono accent">TARGET</div><div class="num" style="font-size:92px;">60%+</div><div class="k stat" style="margin-top:0;">Gross margin at scale <span class="tbd">assumption</span></div></div>
+      <div class="metric"><div class="mono accent">TARGET</div><div class="num" style="font-size:92px;">&lt;6 mo</div><div class="k stat" style="margin-top:0;">CAC payback via subscription <span class="tbd">assumption</span></div></div>
+      <div class="metric"><div class="mono accent">TARGET</div><div class="num" style="font-size:92px;">3–4×</div><div class="k stat" style="margin-top:0;">LTV : CAC over customer life <span class="tbd">assumption</span></div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:22px;"><span class="src" style="color:var(--syrup-lt)">Pre-revenue targets, not results. Validated with formulation, pricing &amp; cohort data.</span><span>07</span></div>
+  </section>
+
+  <!-- 08 PATH TO EBITDA -->
+  <section class="s bg-cream" data-label="Path to EBITDA">
+    <div class="topbar"><div class="section-num">07 — PATH TO EBITDA</div><div class="mono" style="color:var(--muted-on-cream)">OPERATING LEVERAGE</div></div>
+    <h2 class="title" style="margin:18px 0 4px;font-size:62px;">Margin scales as revenue grows</h2>
+    <div class="leg" style="margin-top:10px;color:var(--muted-on-cream);"><span><b style="background:var(--syrup)"></b>Revenue</span><span><b style="background:var(--cinnamon)"></b>Operating cost % of revenue</span><span><b style="background:var(--ink)"></b>EBITDA-positive</span></div>
+    <div class="chartwrap">
+      <svg viewBox="0 0 1000 380" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;">
+        <line x1="0" y1="360" x2="1000" y2="360" stroke="rgba(36,19,16,.18)" stroke-width="2"/>
+        <polyline points="0,330 250,250 500,150 750,70 1000,20" fill="none" stroke="var(--syrup)" stroke-width="6"/>
+        <polyline points="0,60 250,150 500,230 750,290 1000,320" fill="none" stroke="var(--cinnamon)" stroke-width="6"/>
+        <circle cx="389" cy="194" r="11" fill="var(--ink)"/>
+      </svg>
+      <div style="position:absolute;left:41%;top:30%;font-family:var(--font-mono);font-size:22px;color:var(--ink);">EBITDA crossover <span class="tbd">timing TBD</span></div>
+      <div style="position:absolute;left:0;bottom:-2px;font-family:var(--font-mono);font-size:21px;color:var(--muted-on-cream);">Y1</div>
+      <div style="position:absolute;right:0;bottom:-2px;font-family:var(--font-mono);font-size:21px;color:var(--muted-on-cream);">Y5</div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:22px;margin-top:30px;"><span class="src">Illustrative operating-leverage shape — not a forecast</span><span>08</span></div>
+  </section>
+
+  <!-- 09 ASSET-LIGHT OPS -->
+  <section class="s bg-ink" data-label="Operations">
+    <div class="topbar"><div class="section-num">08 — OPERATIONS</div><div class="mono" style="color:var(--muted-on-ink)">ASSET-LIGHT</div></div>
+    <h2 class="title" style="margin:20px 0 36px;">A co-manufactured, capital-light supply chain</h2>
+    <div class="flow">
+      <div class="node"><div class="mono accent">SUPPLY</div><div class="subtitle" style="font-size:34px;">Whey &amp; ingredients</div><div class="small" style="color:var(--muted-on-ink)">Contracted suppliers, COA-tested <span class="tbd">partners TBD</span></div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="mono accent">MAKE</div><div class="subtitle" style="font-size:34px;">Co-manufacturer</div><div class="small" style="color:var(--muted-on-ink)">Blend, fill &amp; bottle under contract — no owned plant</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="mono accent">MOVE</div><div class="subtitle" style="font-size:34px;">3PL &amp; retail DCs</div><div class="small" style="color:var(--muted-on-ink)">Warehousing &amp; fulfillment scale on demand</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="mono accent">SELL</div><div class="subtitle" style="font-size:34px;">DTC · retail</div><div class="small" style="color:var(--muted-on-ink)">Brand owns demand, data &amp; margin</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>Low fixed capital → cash converts to growth, not plant</span><span>09</span></div>
+  </section>
+
+  <!-- 10 CAPITAL PLAN -->
+  <section class="s bg-syrup" data-label="Capital plan">
+    <div class="topbar"><div class="section-num" style="color:#5a2f10">09 — CAPITAL PLAN</div><div class="mono" style="color:#5a2f10">USE OF $1M</div></div>
+    <div class="row" style="flex:1;gap:70px;align-items:center;">
+      <div class="col" style="flex:.85;gap:18px;">
+        <div class="eyebrow">Deploying</div>
+        <div class="num" style="font-size:188px;color:#2a1608;">$1M</div>
+        <div class="subtitle" style="color:#5a2f10;">Pre-Seed to first revenue &amp; proof points</div>
+      </div>
+      <div class="col gap-item" style="flex:1.15;">
+        <div class="row center" style="gap:24px;"><div class="num" style="font-size:60px;color:#2a1608;min-width:140px;">35%</div><div class="body" style="color:#2a1608;">Product development, formulation &amp; co-man setup</div></div>
+        <hr class="rule" style="background:rgba(42,22,8,.22);">
+        <div class="row center" style="gap:24px;"><div class="num" style="font-size:60px;color:#2a1608;min-width:140px;">30%</div><div class="body" style="color:#2a1608;">Brand, launch &amp; demand generation</div></div>
+        <hr class="rule" style="background:rgba(42,22,8,.22);">
+        <div class="row center" style="gap:24px;"><div class="num" style="font-size:60px;color:#2a1608;min-width:140px;">20%</div><div class="body" style="color:#2a1608;">First production runs &amp; inventory</div></div>
+        <hr class="rule" style="background:rgba(42,22,8,.22);">
+        <div class="row center" style="gap:24px;"><div class="num" style="font-size:60px;color:#2a1608;min-width:140px;">15%</div><div class="body" style="color:#2a1608;">Team &amp; working capital <span class="tbd" style="color:#7a3a14;border-color:#7a3a14;">assumption</span></div></div>
+      </div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid rgba(42,22,8,.22);padding-top:22px;color:#5a2f10;"><span>Unlocks: launch-ready product, first DTC cohorts &amp; a real unit-economics model</span><span>10</span></div>
+  </section>
+
+  <!-- 11 RETURNS MODEL -->
+  <section class="s bg-cream" data-label="Returns">
+    <div class="topbar"><div class="section-num">10 — RETURNS</div><div class="mono" style="color:var(--muted-on-cream)">ILLUSTRATIVE SCENARIOS</div></div>
+    <h2 class="title" style="margin:20px 0 30px;">Scenario returns on a $1M entry</h2>
+    <table class="tbl">
+      <thead><tr><th>Scenario</th><th>Path</th><th>Exit horizon</th><th>MoIC</th><th>IRR</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--cinnamon)">Bear</td><td>Slow adoption, raise dilution before traction</td><td>5–6 yr</td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+        <tr class="hi"><td class="accent">Base</td><td>DTC scale + retail pilots, strategic acquisition</td><td>4–5 yr</td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+        <tr><td style="color:var(--syrup)">Bull</td><td>Category leadership, competitive M&amp;A premium</td><td>3–4 yr</td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+      </tbody>
+    </table>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:22px;margin-top:auto;"><span class="src">Scenario framework only — MoIC/IRR require a completed model &amp; entry terms</span><span>11</span></div>
+  </section>
+
+  <!-- 12 VALUE CREATION -->
+  <section class="s bg-ink2" data-label="Value creation">
+    <div class="topbar"><div class="section-num">11 — VALUE CREATION</div><div class="mono" style="color:var(--muted-on-ink)">RETURN DRIVERS</div></div>
+    <h2 class="title" style="margin:20px 0 38px;">Four levers compound the return</h2>
+    <div class="metrics" style="grid-template-columns:repeat(4,1fr);flex:1;align-content:center;">
+      <div class="metric"><div class="num accent" style="font-size:64px;">01</div><div class="subtitle">Margin expansion</div><div class="small" style="color:var(--muted-on-ink)">Scale whey buys &amp; co-man runs lower COGS per bottle.</div></div>
+      <div class="metric"><div class="num accent" style="font-size:64px;">02</div><div class="subtitle">Channel mix</div><div class="small" style="color:var(--muted-on-ink)">Shift toward subscription &amp; foodservice lifts LTV.</div></div>
+      <div class="metric"><div class="num accent" style="font-size:64px;">03</div><div class="subtitle">Line extension</div><div class="small" style="color:var(--muted-on-ink)">New flavors &amp; formats raise AOV with shared supply.</div></div>
+      <div class="metric"><div class="num accent" style="font-size:64px;">04</div><div class="subtitle">Distribution</div><div class="small" style="color:var(--muted-on-ink)">Retail doors multiply volume on a fixed cost base.</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>Each lever is independent — multiple shots at multiple expansion</span><span>12</span></div>
+  </section>
+
+  <!-- 13 RISKS -->
+  <section class="s bg-cream" data-label="Risks">
+    <div class="topbar"><div class="section-num">12 — RISKS</div><div class="mono" style="color:var(--muted-on-cream)">&amp; MITIGANTS</div></div>
+    <h2 class="title" style="margin:20px 0 26px;">Known risks, deliberate mitigants</h2>
+    <table class="tbl">
+      <thead><tr><th style="width:34%;">Risk</th><th>Mitigant</th></tr></thead>
+      <tbody>
+        <tr><td>Pre-development product</td><td>Stage-gated spend; capital released against formulation &amp; co-man milestones.</td></tr>
+        <tr><td>Formulation &amp; taste</td><td>Multiple flavor trials and panel testing before any production commitment.</td></tr>
+        <tr><td>CAC inflation</td><td>Subscription + organic/creator engine to balance paid acquisition.</td></tr>
+        <tr><td>Co-man dependence</td><td>Qualify multiple manufacturers; avoid single-source lock-in.</td></tr>
+        <tr><td>Competitive entry</td><td>First-mover brand, IP on format/positioning, speed to shelf.</td></tr>
+      </tbody>
+    </table>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:20px;margin-top:auto;"><span>Risk register evolves through development</span><span>13</span></div>
+  </section>
+
+  <!-- 14 THE ASK / TERMS -->
+  <section class="s bg-ink2" data-label="The ask">
+    <div class="topbar"><img class="mark" src="../assets/img/wordmark-light.png" alt="DRIPTEIN" style="height:50px;width:auto;"><div class="mono" style="color:var(--muted-on-ink)">13 — THE ASK</div></div>
+    <div class="spread gap-title">
+      <h2 class="title" style="max-width:80%;">$1M Pre-Seed to convert a concept into a returns story</h2>
+      <div class="row" style="gap:30px;">
+        <div class="metric" style="flex:1;"><div class="mono accent">INSTRUMENT</div><div class="subtitle">SAFE / equity</div><div class="small" style="color:var(--muted-on-ink)">Structure &amp; valuation <span class="tbd">TBD</span></div></div>
+        <div class="metric" style="flex:1;"><div class="mono accent">DEPLOYMENT</div><div class="subtitle">~18 months</div><div class="small" style="color:var(--muted-on-ink)">To launch + first cohort proof <span class="tbd">assumption</span></div></div>
+        <div class="metric" style="flex:1;"><div class="mono accent">NEXT ROUND</div><div class="subtitle">Priced Seed</div><div class="small" style="color:var(--muted-on-ink)">On validated unit economics &amp; traction</div></div>
+      </div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>admin@hyperius.site · Currently in development</span><span class="src" style="color:var(--syrup-lt)">All figures illustrative</span></div>
+  </section>
+
+</deck-stage>
+
+<script src="../assets/deck-stage.js"></script>
+</body>
+</html>

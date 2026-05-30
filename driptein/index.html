@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRIPTEIN — Investor Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--ink);color:var(--cream);font-family:var(--font-body);overflow-x:hidden;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px;}
+  /* nav */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:26px 40px;max-width:1320px;margin:0 auto;}
+  nav img{height:34px;}
+  nav .status{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--syrup-lt);border:1.5px solid var(--syrup-lt);border-radius:999px;padding:8px 15px;}
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:40px 0 70px;}
+  .hero .eyebrow{font-family:var(--font-mono);font-size:14px;letter-spacing:.28em;text-transform:uppercase;color:var(--syrup);font-weight:700;}
+  .hero h1{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:90px;line-height:.92;letter-spacing:.004em;margin:22px 0 26px;}
+  .hero h1 .l{display:block;white-space:nowrap;}
+  .hero h1 .a{color:var(--syrup);}
+  .hero p{font-size:21px;line-height:1.5;color:var(--muted-on-ink);max-width:90%;}
+  .herostats{display:flex;gap:40px;margin-top:34px;}
+  .herostats .n{font-family:var(--font-display);font-size:58px;line-height:.85;}
+  .herostats .k{font-family:var(--font-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-on-ink);margin-top:10px;}
+  .herofig{display:flex;justify-content:center;align-items:flex-end;}
+  .herofig img{height:520px;filter:drop-shadow(0 34px 60px rgba(0,0,0,.55));}
+  /* tiles */
+  .tiles-head{display:flex;align-items:baseline;justify-content:space-between;border-top:2px solid var(--line-on-ink);padding-top:24px;margin-bottom:26px;}
+  .tiles-head h2{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:34px;}
+  .tiles-head span{font-family:var(--font-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-on-ink);}
+  .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding-bottom:70px;}
+  .tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:240px;padding:30px 32px;background:#341c12;border:1px solid var(--line-on-ink);text-decoration:none;color:var(--cream);overflow:hidden;transition:transform .2s, background .2s, border-color .2s;}
+  .tile:hover{transform:translateY(-4px);background:#3f2316;border-color:var(--syrup);}
+  .tile .cat{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--syrup-lt);}
+  .tile h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:42px;line-height:.96;margin:14px 0 10px;}
+  .tile p{font-size:15px;line-height:1.45;color:var(--muted-on-ink);max-width:78%;}
+  .tile .go{display:flex;align-items:center;justify-content:space-between;margin-top:24px;font-family:var(--font-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;}
+  .tile .go .arrow{font-family:var(--font-display);font-size:30px;color:var(--syrup);transition:transform .2s;}
+  .tile:hover .go .arrow{transform:translateX(6px);}
+  .tile .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2a1608;background:var(--syrup);border-radius:999px;padding:5px 11px;}
+  /* footer */
+  footer{border-top:2px solid var(--line-on-ink);padding:34px 0 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+  footer .col{display:flex;flex-direction:column;gap:6px;}
+  footer .mono{font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;color:var(--muted-on-ink);}
+  footer a{color:var(--syrup-lt);text-decoration:none;}
+  .disc{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--oat);max-width:520px;line-height:1.5;}
+  @media(max-width:920px){
+    .hero{grid-template-columns:1fr;}
+    .hero h1{font-size:72px;}
+    .herofig{display:none;}
+    .tiles{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <img src="assets/img/wordmark-light.png" alt="DRIPTEIN">
+  <div class="status">Currently in development</div>
+</nav>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Protein you pour · Investor package</div>
+      <h1><span class="l">Shake less.</span><span class="l a">Drip more.</span></h1>
+      <p>DRIPTEIN is the first whey protein syrup built to drip — turning breakfast, dessert and coffee into a 20g-protein hit, no shake required. This is the investor package for our $1M Pre-Seed.</p>
+      <div class="herostats">
+        <div><div class="n accent" style="color:var(--syrup-lt);">&gt;20g</div><div class="k">Protein / serving</div></div>
+        <div><div class="n">~100</div><div class="k">Calories / serving</div></div>
+        <div><div class="n">$1M</div><div class="k">Pre-Seed raise</div></div>
+      </div>
+    </div>
+    <div class="herofig"><img src="assets/img/bottle-chocolate-cut.png" alt="DRIPTEIN bottle"></div>
+  </section>
+
+  <div class="tiles-head">
+    <h2>The package</h2>
+    <span>Four deliverables · one brand system</span>
+  </div>
+
+  <div class="tiles">
+    <a class="tile" href="vc-pitch-deck/index.html">
+      <div><div class="cat">01 · Venture capital</div><h3>VC Pitch Deck</h3><p>The growth story — pourable-protein TAM/SAM/SOM, the wedge, channel strategy and the pre-revenue trajectory.</p></div>
+      <div class="go"><span>Open deck · 14 slides</span><span class="arrow">→</span></div>
+    </a>
+    <a class="tile" href="pe-pitch-deck/index.html">
+      <div><div class="cat">02 · Private equity</div><h3>PE Pitch Deck</h3><p>The returns story — path to EBITDA, margin structure, asset-light operations and IRR / MoIC scenarios.</p></div>
+      <div class="go"><span>Open deck · 14 slides</span><span class="arrow">→</span></div>
+    </a>
+    <a class="tile" href="fb-strategic-deck/index.html">
+      <div><div class="cat">03 · Strategic F&amp;B</div><h3>F&amp;B Strategic Deck</h3><p>The synergy story — dual-aisle shelf fit, co-distribution, portfolio cross-sell and partnership models.</p></div>
+      <div class="go"><span>Open deck · 14 slides</span><span class="arrow">→</span></div>
+    </a>
+    <a class="tile" href="investor-one-pager/index.html">
+      <div><div class="cat">04 · Leave-behind</div><h3>Investor One-Pager</h3><p>The universal summary — the hook, two hero stats, market, model and the ask. Print-ready on US Letter.</p></div>
+      <div class="go"><span>Open · print-ready</span><span class="arrow">→</span></div>
+    </a>
+  </div>
+
+  <footer>
+    <div class="col">
+      <div class="mono">DRIPTEIN · <a href="mailto:admin@hyperius.site">admin@hyperius.site</a> · <a href="https://hyperius.site/driptein">hyperius.site/driptein</a></div>
+      <div class="mono" style="color:var(--cream);">Kalyn Bentley · Founder — operator &amp; investor, founder of Hyperius Holdings.</div>
+      <div class="disc">A Hyperius Holdings venture. Pre-development — macros, pricing, unit economics and projections are placeholders or labeled assumptions, finalized post-development.</div>
+    </div>
+    <div class="mono">$1M Pre-Seed · May 2026</div>
+  </footer>
+</div>
+
+</body>
+</html>
