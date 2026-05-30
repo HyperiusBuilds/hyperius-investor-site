@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRIPTEIN — Investor One-Pager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/brand.css">
+<style>
+  html,body{margin:0;background:#1c1a17;font-family:var(--font-body);}
+  /* screen toolbar (hidden in print) */
+  .toolbar{position:fixed;top:0;left:0;right:0;height:56px;background:rgba(36,19,16,.94);display:flex;align-items:center;justify-content:space-between;padding:0 22px;z-index:50;}
+  .toolbar .bl{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--cream);font-family:var(--font-mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;}
+  .toolbar .bl img{height:20px;}
+  .toolbar .pr{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:var(--syrup);border:0;border-radius:999px;padding:9px 16px;cursor:pointer;}
+  .stage{display:flex;justify-content:center;padding:84px 20px 40px;}
+  /* US Letter sheet */
+  .sheet{width:816px;min-height:1056px;background:var(--cream);color:var(--ink);box-shadow:0 24px 70px rgba(0,0,0,.45);display:flex;flex-direction:column;}
+  .pad{padding:24px 52px;}
+  .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--syrup);font-weight:700;}
+  /* header band */
+  .band{background:var(--ink);color:var(--cream);display:flex;justify-content:space-between;align-items:center;padding:18px 52px;}
+  .band img{height:42px;}
+  .status{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--syrup-lt);border:1.5px solid var(--syrup-lt);border-radius:999px;padding:8px 14px;}
+  /* hook */
+  .hook{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:42px;line-height:.96;letter-spacing:.005em;margin:0;}
+  .sub{font-size:15px;line-height:1.46;color:var(--muted-on-cream);max-width:74%;margin-top:10px;}
+  /* hero stats */
+  .heroes{display:flex;gap:18px;margin-top:18px;}
+  .hero{flex:1;background:var(--ink);color:var(--cream);padding:16px 22px;display:flex;flex-direction:column;}
+  .hero.alt{background:var(--syrup);color:#2a1608;}
+  .hero .n{font-family:var(--font-display);font-size:60px;line-height:.82;}
+  .hero .k{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-top:10px;}
+  .bottlebadge{width:140px;display:flex;align-items:flex-end;justify-content:center;}
+  .bottlebadge img{height:116px;filter:drop-shadow(0 14px 22px rgba(36,19,16,.3));}
+  /* sections grid */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--line-on-cream);}
+  .cell{padding:9px 0;}
+  .cell.r{padding-left:34px;border-left:2px solid var(--line-on-cream);}
+  .cell.l{padding-right:34px;}
+  .h{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-on-cream);margin-bottom:10px;}
+  .mstat{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+  .mstat b{font-family:var(--font-display);font-size:30px;font-weight:400;color:var(--ink);min-width:108px;}
+  .mstat.acc b{color:var(--syrup);}
+  .mstat span{font-size:13.5px;line-height:1.34;color:var(--muted-on-cream);}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px;}
+  .chip2{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--syrup);color:#2a1608;border-radius:999px;padding:7px 13px;}
+  .li{font-size:14px;line-height:1.4;margin-bottom:5px;display:flex;gap:10px;}
+  .li i{color:var(--syrup);font-style:normal;font-weight:800;}
+  .tbd{display:inline-block;font-family:var(--font-mono);font-size:.74em;letter-spacing:.04em;text-transform:uppercase;color:var(--cinnamon);border:1.4px solid currentColor;border-radius:5px;padding:.1em .42em;line-height:1;font-weight:700;}
+  /* ask band */
+  .askband{margin-top:auto;background:var(--ink);color:var(--cream);display:flex;justify-content:space-between;align-items:center;padding:16px 52px;}
+  .askband .big{font-family:var(--font-display);font-size:54px;line-height:.9;}
+  .askband .lab{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--syrup-lt);}
+  .askband .contact{text-align:right;font-size:13px;line-height:1.6;}
+  @page{size:letter;margin:0;}
+  @media print{
+    html,body{background:#fff;}
+    .toolbar{display:none!important;}
+    .stage{padding:0;}
+    .sheet{box-shadow:none;width:100%;min-height:100vh;}
+  }
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="#241310"/>
+  <path d="M50 24 C50 24 70 48 70 60 a20 20 0 1 1 -40 0 C30 48 50 24 50 24 Z" fill="none" stroke="#C9772E" stroke-width="4.5"/>
+  <text x="50" y="72" font-family="Anton, Archivo, sans-serif" font-size="30" fill="#F4E8D2" text-anchor="middle">D</text>
+</svg>
+</template>
+
+
+<div class="toolbar">
+  <a class="bl" href="../index.html"><img src="../assets/img/mark-light.png" alt="">← DRIPTEIN</a>
+  <button class="pr" onclick="window.print()">Print / Save PDF</button>
+</div>
+
+<div class="stage">
+  <div class="sheet">
+
+    <div class="band">
+      <img src="../assets/img/wordmark-light.png" alt="DRIPTEIN">
+      <div class="status">Currently in development</div>
+    </div>
+
+    <div class="pad" style="padding-bottom:14px;">
+      <div class="eyebrow">Protein you pour · Pre-Seed · A Hyperius Holdings venture</div>
+      <h1 class="hook" style="margin-top:16px;">The first whey<br>syrup built to drip</h1>
+      <p class="sub">DRIPTEIN turns the everyday indulgent moment — pancakes, oats, coffee, ice cream — into a 20g-protein hit, no shake required. Shake less. Drip more.</p>
+
+      <div class="heroes">
+        <div class="hero"><div class="n accent" style="color:var(--syrup-lt);">&gt;20g</div><div class="k">Protein / serving</div></div>
+        <div class="hero alt"><div class="n">~100</div><div class="k">Calories / serving</div></div>
+        <div class="bottlebadge"><img src="../assets/img/bottle-chocolate-cut.png" alt="DRIPTEIN bottle"></div>
+      </div>
+    </div>
+
+    <div class="pad" style="padding-top:4px;padding-bottom:12px;">
+      <div class="grid2">
+        <div class="cell l">
+          <div class="h">The market</div>
+          <div class="mstat acc"><b>$66B</b><span>Global protein supplements by 2034 (9.1% CAGR)</span></div>
+          <div class="mstat"><b>~$480B</b><span>U.S. wellness market, growing 5–10% / yr</span></div>
+          <div class="mstat acc"><b>23%</b><span>Of U.S. supplement sales now via e-commerce</span></div>
+          <p style="font-family:var(--font-mono);font-size:11px;color:var(--oat);line-height:1.4;margin-top:6px;">Category figures (Grand View Research; McKinsey; NBJ) — not DRIPTEIN revenue.</p>
+        </div>
+        <div class="cell r">
+          <div class="h">The product</div>
+          <div class="chips"><span class="chip2">Chocolate Rush</span><span class="chip2">Cinnamon Boost</span><span class="chip2">Vanilla Surge</span></div>
+          <div class="li"><i>→</i><span>A pourable whey protein syrup for breakfast, dessert &amp; coffee.</span></div>
+          <div class="li"><i>→</i><span>Pour-and-go format — no blender, no scoop, no cleanup.</span></div>
+          <div class="li"><i>→</i><span>Full macros, bottle format &amp; price <span class="tbd">TBD post-development</span></span></div>
+        </div>
+        <div class="cell l" style="border-top:2px solid var(--line-on-cream);">
+          <div class="h">The wedge</div>
+          <div class="li"><i>→</i><span>Powders, RTDs &amp; bars exist — nothing you <b>pour</b>.</span></div>
+          <div class="li"><i>→</i><span>Owns the open quadrant: pour-&amp;-go convenience × everyday indulgence.</span></div>
+          <div class="li"><i>→</i><span>Dual shelf placement: syrup aisle <b>and</b> protein aisle.</span></div>
+        </div>
+        <div class="cell r" style="border-top:2px solid var(--line-on-cream);">
+          <div class="h">Go-to-market</div>
+          <div class="li"><i>→</i><span>DTC subscription first — recurring revenue &amp; first-party data.</span></div>
+          <div class="li"><i>→</i><span>Then marketplace, retail wholesale &amp; foodservice.</span></div>
+          <div class="li"><i>→</i><span>Asset-light: co-manufactured, 3PL fulfillment.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="askband">
+      <div style="display:flex;align-items:center;gap:24px;">
+        <div class="big">$1M</div>
+        <div><div class="lab">The ask</div><div style="font-size:14px;margin-top:4px;color:var(--cream);">Pre-Seed to build, launch &amp; prove<br>the first pourable protein</div></div>
+      </div>
+      <div class="contact"><span class="lab" style="display:block;margin-bottom:5px;">Kalyn Bentley · Founder</span>Operator &amp; investor, founder of Hyperius Holdings.<br>admin@hyperius.site · hyperius.site/driptein</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

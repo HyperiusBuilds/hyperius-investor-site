@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRIPTEIN — VC Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/brand.css">
+<style>
+  html,body{margin:0;background:#100a07;}
+  /* tweakable vars */
+  :root{--tw-cover:1;--tw-brand:1;}
+  .topbar .mark{height:calc(54px * var(--tw-brand));}
+  .cover-word{width:calc(560px * var(--tw-cover));max-width:64%;height:auto;}
+  .backlink img{height:calc(20px * var(--tw-brand));}
+
+  /* cover */
+  .cover-bottle{position:absolute;right:130px;bottom:-34px;height:112%;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5));pointer-events:none;z-index:1;}
+  /* flavor cards */
+  .flavors{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .flav{background:var(--cream-2);padding:30px 30px 26px;display:flex;flex-direction:column;gap:8px;}
+  .flav .fb{height:300px;display:flex;align-items:flex-end;justify-content:center;}
+  .flav img{height:300px;width:auto;filter:drop-shadow(0 16px 26px rgba(36,19,16,.28));}
+  /* use-case grid */
+  .uc{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;flex:1;}
+  .uc .cell{display:flex;flex-direction:column;}
+  .uc .img{flex:1;min-height:150px;}
+  .uc .lab{font-family:var(--font-mono);font-size:22px;letter-spacing:.1em;text-transform:uppercase;margin-top:14px;}
+  /* tam bars */
+  .tam{display:flex;flex-direction:column;gap:26px;}
+  .tam .bar{display:flex;align-items:center;gap:26px;}
+  .tam .track{height:74px;background:var(--cream-2);position:relative;display:flex;align-items:center;}
+  .tam .fill{height:100%;background:var(--syrup);display:flex;align-items:center;padding-left:28px;}
+  .tam .fill.t2{background:var(--cinnamon);}
+  .tam .fill.t3{background:var(--ink);}
+  .tam .meta{min-width:300px;}
+  /* positioning map */
+  .map{flex:1;position:relative;border-left:2px solid var(--line-on-ink);border-bottom:2px solid var(--line-on-ink);margin:30px 60px 60px 70px;}
+  .map .ax{position:absolute;font-family:var(--font-mono);font-size:21px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-on-ink);}
+  .dot{position:absolute;transform:translate(-50%,50%);display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .dot i{width:18px;height:18px;border-radius:50%;background:var(--oat);display:block;}
+  .dot span{font-family:var(--font-body);font-size:22px;color:var(--muted-on-ink);white-space:nowrap;}
+  .dot.us i{width:30px;height:30px;background:var(--syrup);box-shadow:0 0 0 8px rgba(201,119,46,.22);}
+  .dot.us span{color:var(--cream);font-weight:800;font-size:25px;}
+  /* timeline */
+  .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;flex:1;}
+  .tl .ph0{padding:0 30px;border-top:3px solid var(--line-on-ink);position:relative;display:flex;flex-direction:column;gap:14px;padding-top:36px;}
+  .tl .ph0::before{content:"";position:absolute;top:-9px;left:0;width:16px;height:16px;border-radius:50%;background:var(--syrup-lt);}
+  .tl .pk{font-family:var(--font-mono);font-size:22px;letter-spacing:.14em;color:var(--syrup-lt);}
+  .tl h4{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:34px;margin:0;line-height:1;}
+  /* projection chart */
+  .proj{display:flex;align-items:stretch;gap:30px;flex:1;padding:30px 0 0;}
+  .proj .c{flex:1;display:flex;flex-direction:column;align-items:center;gap:16px;justify-content:flex-end;}
+  .proj .b{width:100%;background:linear-gradient(180deg,var(--syrup-lt),var(--syrup));min-height:6px;}
+  .proj .yr{font-family:var(--font-mono);font-size:22px;letter-spacing:.1em;color:var(--muted-on-ink);}
+  /* use of funds */
+  .funds{display:flex;flex-direction:column;gap:18px;}
+  .funds .f{display:flex;align-items:center;gap:24px;}
+  .funds .ftrack{flex:1;height:46px;background:rgba(42,22,8,.14);}
+  .funds .ffill{height:100%;background:#2a1608;}
+  .funds .fp{font-family:var(--font-display);font-size:40px;min-width:120px;}
+  /* metric cards */
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .metric{background:var(--cream-2);padding:34px 32px;display:flex;flex-direction:column;gap:6px;}
+  .bg-ink2 .metric{background:rgba(244,232,210,.06);}
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="#241310"/>
+  <path d="M50 24 C50 24 70 48 70 60 a20 20 0 1 1 -40 0 C30 48 50 24 50 24 Z" fill="none" stroke="#C9772E" stroke-width="4.5"/>
+  <text x="50" y="72" font-family="Anton, Archivo, sans-serif" font-size="30" fill="#F4E8D2" text-anchor="middle">D</text>
+</svg>
+</template>
+
+
+<a class="backlink" href="../index.html"><img src="../assets/img/mark-light.png" alt="">← DRIPTEIN</a>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 COVER -->
+  <section class="s bg-ink2" data-label="Cover">
+    <div class="topbar" style="position:relative;z-index:2;">
+      <img class="mark" src="../assets/img/wordmark-light.png" alt="DRIPTEIN" style="height:calc(60px * var(--tw-brand));width:auto;">
+    </div>
+    <div class="spread" style="justify-content:center;position:relative;z-index:2;">
+      <div class="eyebrow">Protein you pour</div>
+      <h1 class="display" style="margin:22px 0 26px;max-width:62%;">Shake less.<br><span class="accent">Drip more.</span></h1>
+      <p class="lead" style="max-width:44%;">The first whey protein syrup built to drip — turning breakfast, dessert and coffee into a 20g-protein hit, no shake required.</p>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:26px;position:relative;z-index:2;">
+      <div class="col" style="gap:6px;">
+        <span style="color:var(--syrup-lt);font-size:24px;">Raising $1M Pre-Seed</span>
+        <span style="font-size:21px;">VC Pitch Deck · May 2026 · A Hyperius Holdings venture · Currently in development</span>
+      </div>
+    </div>
+    <img class="cover-bottle" src="../assets/img/bottle-chocolate-cut.png" alt="DRIPTEIN bottle">
+  </section>
+
+  <!-- 02 WHY NOW / MARKET TAILWIND -->
+  <section class="s bg-cream" data-label="Why now">
+    <div class="topbar"><div class="section-num">01 — WHY NOW</div><div class="mono" style="color:var(--muted-on-cream)">CATEGORY TAILWIND</div></div>
+    <div class="spread gap-title">
+      <h2 class="title" style="max-width:80%;">Protein went mainstream — and it's still accelerating</h2>
+      <div class="row" style="gap:64px;">
+        <div class="stat col"><div class="num accent">$66B</div><div class="k">Protein supplement market by 2034 (9.1% CAGR)</div></div>
+        <div class="stat col"><div class="num">~$480B</div><div class="k">U.S. wellness market, growing 5–10% / yr</div></div>
+        <div class="stat col"><div class="num accent">23%</div><div class="k">Of U.S. supplement sales now run through e-commerce</div></div>
+      </div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:24px;">
+      <span class="src">Category figures, not DRIPTEIN's — Grand View Research; McKinsey; NBJ via Nutraceuticals World</span>
+      <span>02</span>
+    </div>
+  </section>
+
+  <!-- 03 PROBLEM -->
+  <section class="s bg-ink2" data-label="Problem">
+    <div class="topbar"><div class="section-num">02 — PROBLEM</div><div class="mono" style="color:var(--muted-on-ink)">THE STATUS QUO</div></div>
+    <div class="spread gap-title">
+      <h2 class="title" style="max-width:74%;">High-protein still means a shaker, a scoop, and a compromise</h2>
+      <div class="col gap-item" style="max-width:84%;">
+        <div class="row center" style="gap:30px;"><div class="mono accent" style="min-width:56px;">01</div><div class="body">Powders and RTD shakes demand prep — a bottle, a blender, cleanup — so protein lives in the gym bag, not the kitchen.</div></div>
+        <hr class="rule">
+        <div class="row center" style="gap:30px;"><div class="mono accent" style="min-width:56px;">02</div><div class="body">"Functional" reads as bland diet food. Protein and indulgence are treated as opposites.</div></div>
+        <hr class="rule">
+        <div class="row center" style="gap:30px;"><div class="mono accent" style="min-width:56px;">03</div><div class="body">The moments people love most — pancakes, coffee, ice cream — carry near-zero protein and all the guilt.</div></div>
+      </div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>The everyday indulgent moment is an open lane</span><span>03</span></div>
+  </section>
+
+  <!-- 04 THE WEDGE -->
+  <section class="s bg-syrup" data-label="The wedge">
+    <div class="topbar"><div class="section-num" style="color:#5a2f10">03 — THE WEDGE</div><div class="mono" style="color:#5a2f10">THE INSIGHT</div></div>
+    <div class="spread" style="justify-content:center;gap:30px;">
+      <div class="eyebrow">Pourable protein</div>
+      <h2 class="display" style="max-width:88%;color:#2a1608;font-size:104px;">Make protein something<br>you <span style="-webkit-text-stroke:2px #2a1608;color:transparent;">pour.</span></h2>
+      <p class="lead" style="color:#5a2f10;max-width:56%;font-size:40px;">Not another shake to add to the day — 20g of whey poured straight over the food and drinks people already reach for.</p>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid rgba(42,22,8,.22);padding-top:24px;color:#5a2f10;"><span>"Shake less. Drip more."</span><span>04</span></div>
+  </section>
+
+  <!-- 05 PRODUCT -->
+  <section class="s bg-cream" data-label="Product">
+    <div class="topbar"><div class="section-num">04 — PRODUCT</div><div class="mono" style="color:var(--muted-on-cream)">MEET DRIPTEIN</div></div>
+    <div class="row" style="flex:1;gap:60px;align-items:stretch;">
+      <div class="col" style="flex:1;justify-content:center;gap:26px;">
+        <h2 class="title" style="font-size:72px;">A whey syrup,<br>poured.</h2>
+        <p class="lead" style="max-width:92%;">20g of protein over anything you already eat or drink — three flavors, no blender.</p>
+        <div class="row" style="gap:48px;">
+          <div class="stat col"><div class="num accent" style="font-size:112px;">&gt;20g</div><div class="k" style="margin-top:6px;">Protein / serving</div></div>
+          <div class="stat col"><div class="num" style="font-size:112px;">~100</div><div class="k" style="margin-top:6px;">Calories / serving</div></div>
+        </div>
+        <div class="row" style="gap:12px;flex-wrap:wrap;">
+          <span class="chip solid">Chocolate Rush</span>
+          <span class="chip solid">Cinnamon Boost</span>
+          <span class="chip solid">Vanilla Surge</span>
+        </div>
+        <p class="small" style="color:var(--muted-on-cream);max-width:92%;">Full macro panel — sugar, fat, carbs — <span class="tbd">TBD post-development</span> · bottle format &amp; size <span class="tbd">TBD</span></p>
+      </div>
+      <div class="row" style="flex:1;align-items:flex-end;justify-content:space-around;gap:8px;">
+        <img src="../assets/img/bottle-chocolate-cut.png" alt="Chocolate" style="height:560px;filter:drop-shadow(0 20px 30px rgba(36,19,16,.25));">
+        <img src="../assets/img/bottle-cinnamon-cut.png" alt="Cinnamon" style="height:620px;filter:drop-shadow(0 20px 30px rgba(36,19,16,.25));">
+        <img src="../assets/img/bottle-vanilla-cut.png" alt="Vanilla" style="height:540px;filter:drop-shadow(0 20px 30px rgba(36,19,16,.25));">
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 USE CASES -->
+  <section class="s bg-ink" data-label="Use cases">
+    <div class="topbar"><div class="section-num">05 — THE RITUAL</div><div class="mono" style="color:var(--muted-on-ink)">POUR IT ON EVERYTHING</div></div>
+    <h2 class="title" style="margin:30px 0 8px;">One bottle, every indulgent moment</h2>
+    <div class="uc" style="margin-top:30px;">
+      <div class="cell"><div class="ph img"><span class="ph-tag">Lifestyle photo — pancake pour</span></div><div class="lab accent">Pancakes &amp; waffles</div></div>
+      <div class="cell"><div class="ph img"><span class="ph-tag">Lifestyle photo — oats</span></div><div class="lab accent">Oats &amp; yogurt</div></div>
+      <div class="cell"><div class="ph img"><span class="ph-tag">Lifestyle photo — coffee</span></div><div class="lab accent">Coffee &amp; lattes</div></div>
+      <div class="cell"><div class="ph img"><span class="ph-tag">Lifestyle photo — ice cream</span></div><div class="lab accent">Ice cream &amp; dessert</div></div>
+      <div class="cell"><div class="ph img"><span class="ph-tag">Lifestyle photo — protein shake</span></div><div class="lab accent">Shakes &amp; smoothies</div></div>
+      <div class="cell"><div class="ph img"><span class="ph-tag">Lifestyle photo — fruit bowl</span></div><div class="lab accent">Fruit &amp; snacks</div></div>
+    </div>
+  </section>
+
+  <!-- 07 MARKET TAM/SAM/SOM -->
+  <section class="s bg-cream" data-label="Market">
+    <div class="topbar"><div class="section-num">06 — MARKET</div><div class="mono" style="color:var(--muted-on-cream)">TAM · SAM · SOM</div></div>
+    <h2 class="title" style="margin:24px 0 36px;max-width:80%;">A pourable wedge into a multi-billion-dollar protein category</h2>
+    <div class="tam" style="flex:1;justify-content:center;">
+      <div class="bar"><div class="track" style="width:100%;"><div class="fill" style="width:100%;"><span class="mono" style="color:#2a1608;font-weight:700;">TAM</span></div></div><div class="meta"><div class="subtitle accent">$66B</div><div class="small" style="color:var(--muted-on-cream)">Global protein supplements by 2034</div></div></div>
+      <div class="bar"><div class="track" style="width:100%;"><div class="fill t2" style="width:46%;"><span class="mono" style="color:#fbe9df;font-weight:700;">SAM</span></div></div><div class="meta"><div class="subtitle" style="color:var(--cinnamon)">~$6.6B <span class="tbd">assumption</span></div><div class="small" style="color:var(--muted-on-cream)">U.S. protein-forward snacking &amp; RTD</div></div></div>
+      <div class="bar"><div class="track" style="width:100%;"><div class="fill t3" style="width:16%;"><span class="mono" style="color:var(--cream);font-weight:700;">SOM</span></div></div><div class="meta"><div class="subtitle" style="color:var(--ink)">$ <span class="tbd">TBD</span></div><div class="small" style="color:var(--muted-on-cream)">Early DTC + pilot retail penetration</div></div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:24px;"><span class="src">TAM from Grand View Research / NBJ; SAM &amp; SOM are pre-development assumptions to be finalized</span><span>07</span></div>
+  </section>
+
+  <!-- 08 POSITIONING -->
+  <section class="s bg-ink2" data-label="Positioning">
+    <div class="topbar"><div class="section-num">07 — COMPETITION</div><div class="mono" style="color:var(--muted-on-ink)">WHITE SPACE</div></div>
+    <h2 class="title" style="margin:14px 0 0;font-size:62px;">No one owns "pour &amp; go" indulgence</h2>
+    <div class="map">
+      <div class="ax" style="left:-104px;top:50%;transform:translateY(-50%) rotate(-90deg);white-space:nowrap;">Gym / clinical &nbsp;→&nbsp; Everyday indulgence</div>
+      <div class="ax" style="left:0;right:0;bottom:-48px;text-align:center;">Shake / blend / prep &nbsp;→&nbsp; Pour &amp; go</div>
+      <div class="dot" style="left:22%;top:34%;"><i></i><span>Protein powders</span></div>
+      <div class="dot" style="left:36%;top:64%;"><i></i><span>RTD shakes</span></div>
+      <div class="dot" style="left:62%;top:76%;"><i></i><span>Dessert syrups / toppings</span></div>
+      <div class="dot" style="left:47%;top:50%;"><i></i><span>Protein bars</span></div>
+      <div class="dot us" style="left:80%;top:20%;"><i></i><span>DRIPTEIN</span></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:22px;"><span>Pourable convenience meets everyday indulgence — an unclaimed quadrant</span><span>08</span></div>
+  </section>
+
+  <!-- 09 BUSINESS MODEL -->
+  <section class="s bg-cream" data-label="Business model">
+    <div class="topbar"><div class="section-num">08 — BUSINESS MODEL</div><div class="mono" style="color:var(--muted-on-cream)">DTC FIRST, RETAIL NEXT</div></div>
+    <h2 class="title" style="margin:24px 0 36px;">Four revenue streams, one bottle</h2>
+    <div class="metrics" style="flex:1;align-content:center;grid-template-columns:repeat(4,1fr);">
+      <div class="metric"><div class="mono accent">01 — LAUNCH</div><div class="subtitle">DTC subscription</div><div class="small" style="color:var(--muted-on-cream)">Recurring monthly multi-bottle plans off hyperius.site/driptein</div></div>
+      <div class="metric"><div class="mono accent">02</div><div class="subtitle">Marketplace</div><div class="small" style="color:var(--muted-on-cream)">Amazon &amp; protein-forward marketplaces for reach</div></div>
+      <div class="metric"><div class="mono accent">03</div><div class="subtitle">Retail wholesale</div><div class="small" style="color:var(--muted-on-cream)">Grocery, club &amp; specialty — syrup and protein aisles</div></div>
+      <div class="metric"><div class="mono accent">04</div><div class="subtitle">Foodservice</div><div class="small" style="color:var(--muted-on-cream)">Cafés, gyms &amp; smoothie bars as a pour-station SKU</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:24px;"><span>Pricing, subscription tiers &amp; margin mix <span class="tbd">TBD post-development</span></span><span>09</span></div>
+  </section>
+
+  <!-- 10 GO-TO-MARKET -->
+  <section class="s bg-ink" data-label="Go-to-market">
+    <div class="topbar"><div class="section-num">09 — GO-TO-MARKET</div><div class="mono" style="color:var(--muted-on-ink)">PHASED ROLL-OUT</div></div>
+    <h2 class="title" style="margin:18px 0 10px;">From kitchen counter to retail shelf</h2>
+    <div class="tl" style="margin-top:40px;">
+      <div class="ph0"><div class="pk">PHASE 0 · NOW</div><h4>Build</h4><div class="small" style="color:var(--muted-on-ink)">Finalize formulation, co-man partner, packaging &amp; brand.</div></div>
+      <div class="ph0"><div class="pk">PHASE 1</div><h4>DTC launch</h4><div class="small" style="color:var(--muted-on-ink)">Direct site, creator &amp; UGC engine, founding-customer flavors.</div></div>
+      <div class="ph0"><div class="pk">PHASE 2</div><h4>Scale channels</h4><div class="small" style="color:var(--muted-on-ink)">Amazon, gym &amp; specialty retail pilots, subscription depth.</div></div>
+      <div class="ph0"><div class="pk">PHASE 3</div><h4>Retail &amp; expand</h4><div class="small" style="color:var(--muted-on-ink)">National grocery/club, foodservice, new formats &amp; flavors.</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>Sequencing &amp; timing are planning assumptions, pre-development</span><span>10</span></div>
+  </section>
+
+  <!-- 11 UNIT ECONOMICS -->
+  <section class="s bg-cream" data-label="Unit economics">
+    <div class="topbar"><div class="section-num">10 — UNIT ECONOMICS</div><div class="mono" style="color:var(--muted-on-cream)">ILLUSTRATIVE · ASSUMPTIONS</div></div>
+    <h2 class="title" style="margin:24px 0 34px;max-width:78%;">An economic model designed to compound <span class="tbd">to be validated</span></h2>
+    <div class="metrics" style="flex:1;align-content:center;">
+      <div class="metric"><div class="mono accent">TARGET</div><div class="num" style="font-size:96px;">3–4×</div><div class="k stat" style="margin-top:0;">LTV : CAC <span class="tbd">assumption</span></div></div>
+      <div class="metric"><div class="mono accent">DRIVER</div><div class="subtitle">Subscription<br>+ multi-bottle AOV</div><div class="small" style="color:var(--muted-on-cream)">Recurring pours = high repeat, low reorder friction</div></div>
+      <div class="metric"><div class="mono accent">MARGIN</div><div class="num" style="font-size:96px;">$ <span class="tbd" style="font-size:.4em;">TBD</span></div><div class="k stat" style="margin-top:0;">Contribution / bottle — post-COGS</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:24px;"><span class="src">Pre-revenue. CAC, AOV, retention &amp; COGS to be finalized with formulation and channel data</span><span>11</span></div>
+  </section>
+
+  <!-- 12 PROJECTIONS -->
+  <section class="s bg-ink2" data-label="Projections">
+    <div class="topbar"><div class="section-num">11 — PROJECTIONS</div><div class="mono" style="color:var(--syrup-lt)">ILLUSTRATIVE · PRE-REVENUE</div></div>
+    <h2 class="title" style="margin:18px 0 6px;">The shape we're building toward</h2>
+    <div class="proj">
+      <div class="c"><div class="mono accent">$ TBD</div><div class="b" style="height:9%;"></div><div class="yr">Y1 · Launch</div></div>
+      <div class="c"><div class="mono accent">$ TBD</div><div class="b" style="height:22%;"></div><div class="yr">Y2 · DTC scale</div></div>
+      <div class="c"><div class="mono accent">$ TBD</div><div class="b" style="height:42%;"></div><div class="yr">Y3 · Retail pilots</div></div>
+      <div class="c"><div class="mono accent">$ TBD</div><div class="b" style="height:68%;"></div><div class="yr">Y4 · National retail</div></div>
+      <div class="c"><div class="mono accent">$ TBD</div><div class="b" style="height:100%;"></div><div class="yr">Y5 · Expansion</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:22px;"><span class="src" style="color:var(--syrup-lt)">Illustrative trajectory only — not a forecast. Figures finalized post-development with a full model.</span><span>12</span></div>
+  </section>
+
+  <!-- 13 THE ASK -->
+  <section class="s bg-syrup" data-label="The ask">
+    <div class="topbar"><div class="section-num" style="color:#5a2f10">12 — THE ASK</div><div class="mono" style="color:#5a2f10">USE OF FUNDS</div></div>
+    <div class="row" style="flex:1;gap:80px;align-items:center;">
+      <div class="col" style="flex:.9;gap:22px;">
+        <div class="eyebrow">We are raising</div>
+        <div class="num" style="font-size:200px;color:#2a1608;">$1M</div>
+        <div class="subtitle" style="color:#5a2f10;">Pre-Seed · to get DRIPTEIN built &amp; launched</div>
+      </div>
+      <div class="col funds" style="flex:1.1;">
+        <div class="f"><div class="fp" style="color:#2a1608;">35%</div><div class="ftrack"><div class="ffill" style="width:35%;"></div></div></div>
+        <div class="small" style="color:#2a1608;margin:-8px 0 4px;">Product development, formulation &amp; co-man setup</div>
+        <div class="f"><div class="fp" style="color:#2a1608;">30%</div><div class="ftrack"><div class="ffill" style="width:30%;"></div></div></div>
+        <div class="small" style="color:#2a1608;margin:-8px 0 4px;">Brand, launch &amp; demand generation</div>
+        <div class="f"><div class="fp" style="color:#2a1608;">20%</div><div class="ftrack"><div class="ffill" style="width:20%;"></div></div></div>
+        <div class="small" style="color:#2a1608;margin:-8px 0 4px;">First production runs &amp; inventory</div>
+        <div class="f"><div class="fp" style="color:#2a1608;">15%</div><div class="ftrack"><div class="ffill" style="width:15%;"></div></div></div>
+        <div class="small" style="color:#2a1608;margin:-8px 0 0;">Team &amp; working capital <span class="tbd" style="color:#7a3a14;border-color:#7a3a14;">allocation assumption</span></div>
+      </div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid rgba(42,22,8,.22);padding-top:22px;color:#5a2f10;"><span>Milestone: launch-ready product + first DTC traction → Seed</span><span>13</span></div>
+  </section>
+
+  <!-- 14 VISION & EXIT -->
+  <section class="s bg-ink2" data-label="Vision">
+    <div class="topbar"><img class="mark" src="../assets/img/wordmark-light.png" alt="DRIPTEIN" style="height:calc(50px * var(--tw-brand));width:auto;"><div class="mono" style="color:var(--muted-on-ink)">13 — VISION &amp; EXIT</div></div>
+    <div class="spread gap-title">
+      <h2 class="title" style="max-width:80%;">Build the pourable-protein category — then become the obvious acquisition</h2>
+      <div class="row" style="gap:30px;">
+        <div class="metric" style="flex:1;"><div class="mono accent">EXIT PATH A</div><div class="subtitle">Strategic F&amp;B acquisition</div><div class="small" style="color:var(--muted-on-ink)">A protein, syrup or functional-food major buys the format &amp; brand.</div></div>
+        <div class="metric" style="flex:1;"><div class="mono accent">EXIT PATH B</div><div class="subtitle">Platform roll-up</div><div class="small" style="color:var(--muted-on-ink)">Fold into a multi-brand wellness platform at scale.</div></div>
+        <div class="metric" style="flex:1;"><div class="mono accent">EXIT PATH C</div><div class="subtitle">Stay &amp; scale</div><div class="small" style="color:var(--muted-on-ink)">Category leadership with later growth-equity rounds.</div></div>
+      </div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>admin@hyperius.site · Currently in development</span><span class="src" style="color:var(--syrup-lt)">Exit scenarios are illustrative</span></div>
+  </section>
+
+</deck-stage>
+
+<!-- Tweaks -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="../assets/tweaks-panel.jsx"></script>
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "#C9772E",
+  "coverLogo": 1,
+  "brandLogo": 1
+}/*EDITMODE-END*/;
+
+function lighten(hex, amt){
+  const n=parseInt(hex.slice(1),16); let r=n>>16,g=(n>>8)&255,b=n&255;
+  r=Math.min(255,Math.round(r+(255-r)*amt));g=Math.min(255,Math.round(g+(255-g)*amt));b=Math.min(255,Math.round(b+(255-b)*amt));
+  return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);
+}
+function App(){
+  const [t,setTweak]=useTweaks(TWEAK_DEFAULTS);
+  React.useEffect(()=>{
+    const r=document.documentElement.style;
+    r.setProperty('--syrup', t.accent);
+    r.setProperty('--syrup-lt', lighten(t.accent,.22));
+    r.setProperty('--tw-cover', t.coverLogo);
+    r.setProperty('--tw-brand', t.brandLogo);
+  },[t]);
+  return (
+    <TweaksPanel>
+      <TweakSection label="Brand" />
+      <TweakColor label="Accent color" value={t.accent}
+        options={['#C9772E','#A23A1C','#D6A23C','#7A5230']}
+        onChange={(v)=>setTweak('accent',v)} />
+      <TweakSection label="Logo sizing" />
+      <TweakSlider label="Cover logo size" value={t.coverLogo} min={0.7} max={1.4} step={0.05}
+        onChange={(v)=>setTweak('coverLogo',v)} />
+      <TweakSlider label="In-deck mark size" value={t.brandLogo} min={0.7} max={1.5} step={0.05}
+        onChange={(v)=>setTweak('brandLogo',v)} />
+    </TweaksPanel>
+  );
+}
+const mount=document.createElement('div');document.body.appendChild(mount);
+ReactDOM.createRoot(mount).render(<App/>);
+</script>
+
+<script src="../assets/deck-stage.js"></script>
+</body>
+</html>

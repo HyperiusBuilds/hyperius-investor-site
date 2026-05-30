@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRIPTEIN — F&B Strategic Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/brand.css">
+<style>
+  html,body{margin:0;background:#100a07;}
+  .cover-bottle{position:absolute;right:130px;bottom:-34px;height:112%;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5));pointer-events:none;z-index:1;}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .metric{background:var(--cream-2);padding:34px 32px;display:flex;flex-direction:column;gap:8px;}
+  .bg-ink .metric,.bg-ink2 .metric{background:rgba(244,232,210,.06);}
+  /* flow / nodes */
+  .flow{display:flex;align-items:stretch;gap:0;flex:1;}
+  .node{flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;padding:34px 30px;background:rgba(244,232,210,.06);}
+  .arr{display:flex;align-items:center;justify-content:center;width:64px;font-family:var(--font-display);font-size:44px;color:var(--syrup-lt);}
+  /* table */
+  .tbl{width:100%;border-collapse:collapse;font-size:28px;}
+  .tbl th{font-family:var(--font-mono);font-size:22px;letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:18px 22px;color:var(--muted-on-cream);border-bottom:2px solid var(--line-on-cream);}
+  .tbl td{padding:20px 22px;border-bottom:1px solid var(--line-on-cream);vertical-align:top;}
+  .tbl tr td:first-child{font-family:var(--font-display);text-transform:uppercase;font-size:30px;white-space:nowrap;}
+  /* shelf / aisles */
+  .shelf{display:flex;gap:40px;flex:1;}
+  .aisle{flex:1;background:var(--cream-2);display:flex;flex-direction:column;padding:30px 34px 26px;}
+  .aisle .head{font-family:var(--font-mono);font-size:22px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-on-cream);}
+  .aisle .sub{font-size:24px;color:var(--muted-on-cream);margin-top:6px;}
+  .aisle .row{height:340px;display:flex;align-items:flex-end;justify-content:center;gap:18px;border-bottom:8px solid var(--oat);margin-top:auto;}
+  .box{width:60px;border-radius:4px 4px 0 0;background:rgba(36,19,16,.14);}
+  .aisle .row img{height:320px;filter:drop-shadow(0 14px 20px rgba(36,19,16,.28));position:relative;z-index:2;}
+  .tagpin{font-family:var(--font-mono);font-size:20px;letter-spacing:.06em;color:var(--syrup);text-align:center;margin-top:14px;}
+  /* timeline */
+  .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;flex:1;}
+  .tl .ph0{padding:36px 30px 0;border-top:3px solid var(--line-on-cream);position:relative;display:flex;flex-direction:column;gap:14px;}
+  .bg-ink .tl .ph0,.bg-ink2 .tl .ph0{border-color:var(--line-on-ink);}
+  .tl .ph0::before{content:"";position:absolute;top:-9px;left:0;width:16px;height:16px;border-radius:50%;background:var(--syrup);}
+  .tl .pk{font-family:var(--font-mono);font-size:22px;letter-spacing:.14em;color:var(--syrup);}
+  .bg-ink .tl .pk,.bg-ink2 .tl .pk{color:var(--syrup-lt);}
+  .tl h4{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:34px;line-height:1;}
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="#241310"/>
+  <path d="M50 24 C50 24 70 48 70 60 a20 20 0 1 1 -40 0 C30 48 50 24 50 24 Z" fill="none" stroke="#C9772E" stroke-width="4.5"/>
+  <text x="50" y="72" font-family="Anton, Archivo, sans-serif" font-size="30" fill="#F4E8D2" text-anchor="middle">D</text>
+</svg>
+</template>
+
+
+<a class="backlink" href="../index.html"><img src="../assets/img/mark-light.png" alt="">← DRIPTEIN</a>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 COVER -->
+  <section class="s bg-ink2" data-label="Cover">
+    <div class="topbar" style="position:relative;z-index:2;">
+      <img class="mark" src="../assets/img/wordmark-light.png" alt="DRIPTEIN" style="height:60px;width:auto;">
+      <div class="mono" style="color:var(--muted-on-ink);letter-spacing:.2em;">× &nbsp;STRATEGIC&nbsp;PARTNER</div>
+    </div>
+    <div class="spread" style="justify-content:center;position:relative;z-index:2;">
+      <div class="eyebrow">Strategic partnership</div>
+      <h1 class="display" style="margin:22px 0 26px;max-width:62%;">Put protein in the <span class="accent">syrup aisle.</span></h1>
+      <p class="lead" style="max-width:44%;">DRIPTEIN is a pourable, 20g-protein syrup — a new format that fits a strategic partner's shelf, supply chain and portfolio.</p>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:26px;position:relative;z-index:2;">
+      <div class="col" style="gap:6px;">
+        <span style="color:var(--syrup-lt);font-size:24px;">A partnership &amp; co-distribution overview</span>
+        <span style="font-size:21px;">F&amp;B Strategic Deck · May 2026 · A Hyperius Holdings venture · Currently in development</span>
+      </div>
+    </div>
+    <img class="cover-bottle" src="../assets/img/bottle-vanilla-cut.png" alt="DRIPTEIN bottle">
+  </section>
+
+  <!-- 02 THE OPPORTUNITY -->
+  <section class="s bg-cream" data-label="Opportunity">
+    <div class="topbar"><div class="section-num">01 — OPPORTUNITY</div><div class="mono" style="color:var(--muted-on-cream)">WHITE SPACE</div></div>
+    <h2 class="title" style="margin:24px 0 40px;max-width:82%;">A format the protein category doesn't have yet</h2>
+    <div class="metrics" style="flex:1;align-content:center;">
+      <div class="metric"><div class="mono accent">THE GAP</div><div class="subtitle">No pourable protein</div><div class="small" style="color:var(--muted-on-cream)">Powders, RTDs and bars exist — nothing you pour over everyday food.</div></div>
+      <div class="metric"><div class="mono accent">THE PULL</div><div class="subtitle">Protein everywhere</div><div class="small" style="color:var(--muted-on-cream)">Consumers add protein to meals they already eat — demand is broad and rising.</div></div>
+      <div class="metric"><div class="mono accent">THE FIT</div><div class="subtitle">Built for your shelf</div><div class="small" style="color:var(--muted-on-cream)">A syrup format slots into a strategic's existing aisles and supply chain.</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:24px;"><span>The wedge: pourable convenience meets everyday indulgence</span><span>02</span></div>
+  </section>
+
+  <!-- 03 PRODUCT -->
+  <section class="s bg-ink2" data-label="Product">
+    <div class="topbar"><div class="section-num">02 — THE PRODUCT</div><div class="mono" style="color:var(--muted-on-ink)">MEET DRIPTEIN</div></div>
+    <div class="row" style="flex:1;gap:60px;align-items:center;">
+      <div class="col" style="flex:1.05;gap:26px;">
+        <h2 class="title" style="font-size:70px;">20g of protein, poured straight from the bottle</h2>
+        <div class="row" style="gap:48px;">
+          <div class="stat col"><div class="num accent" style="font-size:112px;">&gt;20g</div><div class="k" style="margin-top:6px;">Protein / serving</div></div>
+          <div class="stat col"><div class="num" style="font-size:112px;">~100</div><div class="k" style="margin-top:6px;">Calories / serving</div></div>
+        </div>
+        <div class="row" style="gap:12px;flex-wrap:wrap;"><span class="chip">Chocolate Rush</span><span class="chip">Cinnamon Boost</span><span class="chip">Vanilla Surge</span></div>
+        <p class="small" style="color:var(--muted-on-ink);max-width:90%;">Nutrition panel, format &amp; price <span class="tbd">TBD post-development</span></p>
+      </div>
+      <div class="row" style="flex:.95;align-items:flex-end;justify-content:center;gap:6px;">
+        <img src="../assets/img/bottle-cinnamon-cut.png" alt="" style="height:560px;filter:drop-shadow(0 20px 34px rgba(0,0,0,.45));">
+        <img src="../assets/img/bottle-chocolate-cut.png" alt="" style="height:500px;filter:drop-shadow(0 20px 34px rgba(0,0,0,.45));">
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 CONSUMER TREND FIT -->
+  <section class="s bg-cream" data-label="Consumer fit">
+    <div class="topbar"><div class="section-num">03 — CONSUMER</div><div class="mono" style="color:var(--muted-on-cream)">WHERE DEMAND IS GOING</div></div>
+    <h2 class="title" style="margin:22px 0 36px;max-width:74%;">Protein and indulgence are converging</h2>
+    <div class="row" style="flex:1;gap:48px;align-items:center;">
+      <div class="col" style="flex:1;gap:30px;">
+        <div class="stat col"><div class="num accent" style="font-size:124px;">$66B</div><div class="k">Global protein supplements by 2034 (9.1% CAGR)</div></div>
+        <div class="stat col"><div class="num" style="font-size:124px;">~$480B</div><div class="k">U.S. wellness market, +5–10% / yr</div></div>
+      </div>
+      <div class="col gap-item" style="flex:1;">
+        <div class="panel"><div class="subtitle accent" style="font-size:34px;">Permissible indulgence</div><div class="small" style="color:var(--muted-on-cream);margin-top:8px;">Shoppers want treats that also do something — protein makes indulgence guilt-free.</div></div>
+        <div class="panel"><div class="subtitle accent" style="font-size:34px;">Protein, everywhere</div><div class="small" style="color:var(--muted-on-cream);margin-top:8px;">Add-protein behavior has moved from gym to kitchen table.</div></div>
+        <div class="panel"><div class="subtitle accent" style="font-size:34px;">Format fatigue</div><div class="small" style="color:var(--muted-on-cream);margin-top:8px;">Shake &amp; bar formats are saturated — a new format earns attention.</div></div>
+      </div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:22px;"><span class="src">Category figures — Grand View Research; McKinsey</span><span>04</span></div>
+  </section>
+
+  <!-- 05 STRATEGIC RATIONALE -->
+  <section class="s bg-ink" data-label="Strategic rationale">
+    <div class="topbar"><div class="section-num">04 — RATIONALE</div><div class="mono" style="color:var(--muted-on-ink)">WHY A STRATEGIC</div></div>
+    <h2 class="title" style="margin:22px 0 36px;">Capital alone doesn't get DRIPTEIN to shelf — you do</h2>
+    <div class="metrics" style="grid-template-columns:repeat(4,1fr);flex:1;align-content:center;">
+      <div class="metric"><div class="num accent" style="font-size:60px;">01</div><div class="subtitle">Shelf access</div><div class="small" style="color:var(--muted-on-ink)">Existing retail relationships &amp; slotting open doors fast.</div></div>
+      <div class="metric"><div class="num accent" style="font-size:60px;">02</div><div class="subtitle">Supply scale</div><div class="small" style="color:var(--muted-on-ink)">Plants &amp; procurement lower COGS from day one.</div></div>
+      <div class="metric"><div class="num accent" style="font-size:60px;">03</div><div class="subtitle">Distribution</div><div class="small" style="color:var(--muted-on-ink)">DSD &amp; logistics networks reach more stores, faster.</div></div>
+      <div class="metric"><div class="num accent" style="font-size:60px;">04</div><div class="subtitle">Portfolio pull</div><div class="small" style="color:var(--muted-on-ink)">Cross-sell &amp; merchandising within your brand family.</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>A strategic partner compresses years of go-to-market into quarters</span><span>05</span></div>
+  </section>
+
+  <!-- 06 SHELF PLACEMENT -->
+  <section class="s bg-cream" data-label="Shelf placement">
+    <div class="topbar"><div class="section-num">05 — SHELF</div><div class="mono" style="color:var(--muted-on-cream)">DUAL PLACEMENT</div></div>
+    <h2 class="title" style="margin:18px 0 26px;">One bottle, two aisles</h2>
+    <div class="shelf">
+      <div class="aisle">
+        <div class="head">Aisle A · Syrup &amp; toppings</div>
+        <div class="sub">Next to pancake syrup, dessert &amp; coffee — wins the indulgence shopper.</div>
+        <div class="row">
+          <div class="box" style="height:46%;"></div>
+          <div class="box" style="height:62%;"></div>
+          <img src="../assets/img/bottle-chocolate-cut.png" alt="DRIPTEIN">
+          <div class="box" style="height:54%;"></div>
+          <div class="box" style="height:40%;"></div>
+        </div>
+        <div class="tagpin">↑ DRIPTEIN</div>
+      </div>
+      <div class="aisle">
+        <div class="head">Aisle B · Protein &amp; sports nutrition</div>
+        <div class="sub">Beside powders &amp; RTDs — wins the protein shopper looking for variety.</div>
+        <div class="row">
+          <div class="box" style="height:58%;"></div>
+          <div class="box" style="height:44%;"></div>
+          <img src="../assets/img/bottle-vanilla-cut.png" alt="DRIPTEIN">
+          <div class="box" style="height:64%;"></div>
+          <div class="box" style="height:50%;"></div>
+        </div>
+        <div class="tagpin">↑ DRIPTEIN</div>
+      </div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:22px;"><span>Dual-placement doubles discovery — a rare advantage for a single SKU</span><span>06</span></div>
+  </section>
+
+  <!-- 07 DISTRIBUTION SYNERGY -->
+  <section class="s bg-ink2" data-label="Distribution">
+    <div class="topbar"><div class="section-num">06 — DISTRIBUTION</div><div class="mono" style="color:var(--muted-on-ink)">CO-DISTRIBUTION</div></div>
+    <h2 class="title" style="margin:20px 0 36px;">Ride the network you've already built</h2>
+    <div class="flow">
+      <div class="node"><div class="mono accent">BRAND</div><div class="subtitle" style="font-size:34px;">DRIPTEIN</div><div class="small" style="color:var(--muted-on-ink)">Product, brand &amp; demand creation</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="mono accent">PARTNER DSD</div><div class="subtitle" style="font-size:34px;">Your logistics</div><div class="small" style="color:var(--muted-on-ink)">Direct-store-delivery &amp; warehouse networks</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="mono accent">RETAIL</div><div class="subtitle" style="font-size:34px;">More doors</div><div class="small" style="color:var(--muted-on-ink)">Grocery, club, convenience &amp; specialty</div></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="mono accent">SHOPPER</div><div class="subtitle" style="font-size:34px;">Everyday pour</div><div class="small" style="color:var(--muted-on-ink)">Trial, repeat &amp; basket lift</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>Incremental volume on infrastructure that's already paid for</span><span>07</span></div>
+  </section>
+
+  <!-- 08 PORTFOLIO CROSS-SELL -->
+  <section class="s bg-cream" data-label="Cross-sell">
+    <div class="topbar"><div class="section-num">07 — PORTFOLIO</div><div class="mono" style="color:var(--muted-on-cream)">CROSS-SELL</div></div>
+    <h2 class="title" style="margin:22px 0 36px;max-width:78%;">DRIPTEIN makes the rest of the basket work harder</h2>
+    <div class="metrics" style="flex:1;align-content:center;">
+      <div class="metric"><div class="mono accent">BREAKFAST</div><div class="subtitle">Pancakes &amp; coffee</div><div class="small" style="color:var(--muted-on-cream)">Bundles with mixes, syrups &amp; creamers already in portfolio.</div></div>
+      <div class="metric"><div class="mono accent">SPORTS NUTRITION</div><div class="subtitle">Protein line halo</div><div class="small" style="color:var(--muted-on-cream)">Extends a protein brand into a fresh, ownable format.</div></div>
+      <div class="metric"><div class="mono accent">DESSERT &amp; SNACK</div><div class="subtitle">Indulgence add-on</div><div class="small" style="color:var(--muted-on-cream)">Cross-merch with ice cream, toppings &amp; snacking SKUs.</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:24px;"><span>One SKU, multiple merchandising stories across your portfolio</span><span>08</span></div>
+  </section>
+
+  <!-- 09 SUPPLY SYNERGY -->
+  <section class="s bg-ink" data-label="Supply synergy">
+    <div class="topbar"><div class="section-num">08 — SUPPLY</div><div class="mono" style="color:var(--muted-on-ink)">CO-MANUFACTURING</div></div>
+    <h2 class="title" style="margin:22px 0 36px;">Make it where you already make things</h2>
+    <div class="metrics" style="flex:1;align-content:center;">
+      <div class="metric"><div class="mono accent">PROCUREMENT</div><div class="subtitle">Whey at scale</div><div class="small" style="color:var(--muted-on-ink)">Shared ingredient buying power lowers landed COGS.</div></div>
+      <div class="metric"><div class="mono accent">MANUFACTURING</div><div class="subtitle">Existing lines</div><div class="small" style="color:var(--muted-on-ink)">Blend &amp; fill on partner capacity — no new plant.</div></div>
+      <div class="metric"><div class="mono accent">QUALITY</div><div class="subtitle">Proven systems</div><div class="small" style="color:var(--muted-on-ink)">Partner's food-safety &amp; QA processes de-risk launch.</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>Capacity, procurement &amp; quality — synergies <span class="tbd">quantified post-development</span></span><span>09</span></div>
+  </section>
+
+  <!-- 10 BRAND & MARKETING SYNERGY -->
+  <section class="s bg-cream" data-label="Marketing synergy">
+    <div class="topbar"><div class="section-num">09 — MARKETING</div><div class="mono" style="color:var(--muted-on-cream)">SHARED REACH</div></div>
+    <h2 class="title" style="margin:22px 0 36px;max-width:76%;">DRIPTEIN brings energy; you bring reach</h2>
+    <div class="row" style="flex:1;gap:40px;align-items:stretch;">
+      <div class="panel" style="flex:1;display:flex;flex-direction:column;gap:14px;justify-content:center;"><div class="mono accent">DRIPTEIN CONTRIBUTES</div><div class="body">A distinctive brand, creator-native marketing, and a format that's inherently shareable on social.</div></div>
+      <div class="panel" style="flex:1;display:flex;flex-direction:column;gap:14px;justify-content:center;"><div class="mono accent">PARTNER CONTRIBUTES</div><div class="body">Retail media, shopper-marketing budgets, owned channels and trade relationships at scale.</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:24px;"><span>Co-marketing turns a launch into a category event</span><span>10</span></div>
+  </section>
+
+  <!-- 11 PARTNERSHIP MODELS -->
+  <section class="s bg-syrup" data-label="Partnership models">
+    <div class="topbar"><div class="section-num" style="color:#5a2f10">10 — STRUCTURE</div><div class="mono" style="color:#5a2f10">PARTNERSHIP MODELS</div></div>
+    <h2 class="title" style="margin:18px 0 34px;color:#2a1608;">Flexible ways to work together</h2>
+    <div class="row" style="flex:1;gap:24px;align-items:stretch;">
+      <div class="col" style="flex:1;background:rgba(42,22,8,.10);padding:34px 30px;gap:12px;"><div class="num" style="font-size:56px;color:#2a1608;">A</div><div class="subtitle" style="color:#2a1608;">Distribution</div><div class="small" style="color:#5a2f10;">Partner distributes; DRIPTEIN stays independent.</div></div>
+      <div class="col" style="flex:1;background:rgba(42,22,8,.10);padding:34px 30px;gap:12px;"><div class="num" style="font-size:56px;color:#2a1608;">B</div><div class="subtitle" style="color:#2a1608;">Licensing</div><div class="small" style="color:#5a2f10;">License brand/format into partner manufacturing.</div></div>
+      <div class="col" style="flex:1;background:rgba(42,22,8,.10);padding:34px 30px;gap:12px;"><div class="num" style="font-size:56px;color:#2a1608;">C</div><div class="subtitle" style="color:#2a1608;">Joint venture</div><div class="small" style="color:#5a2f10;">Shared entity, shared upside &amp; control.</div></div>
+      <div class="col" style="flex:1;background:rgba(42,22,8,.10);padding:34px 30px;gap:12px;"><div class="num" style="font-size:56px;color:#2a1608;">D</div><div class="subtitle" style="color:#2a1608;">Strategic equity</div><div class="small" style="color:#5a2f10;">Invest now, with a path to acquisition.</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid rgba(42,22,8,.22);padding-top:22px;color:#5a2f10;"><span>Terms for any model <span class="tbd" style="color:#7a3a14;border-color:#7a3a14;">to be finalized</span></span><span>11</span></div>
+  </section>
+
+  <!-- 12 ROADMAP -->
+  <section class="s bg-ink" data-label="Roadmap">
+    <div class="topbar"><div class="section-num">11 — ROADMAP</div><div class="mono" style="color:var(--muted-on-ink)">PHASED INTEGRATION</div></div>
+    <h2 class="title" style="margin:20px 0 10px;">From handshake to shelf</h2>
+    <div class="tl" style="margin-top:40px;">
+      <div class="ph0"><div class="pk">PHASE 1</div><h4>Align</h4><div class="small" style="color:var(--muted-on-ink)">Define model, finalize formulation &amp; pack with partner input.</div></div>
+      <div class="ph0"><div class="pk">PHASE 2</div><h4>Produce</h4><div class="small" style="color:var(--muted-on-ink)">First runs on partner capacity; QA &amp; compliance.</div></div>
+      <div class="ph0"><div class="pk">PHASE 3</div><h4>Place</h4><div class="small" style="color:var(--muted-on-ink)">Pilot dual-aisle placement in select retail.</div></div>
+      <div class="ph0"><div class="pk">PHASE 4</div><h4>Scale</h4><div class="small" style="color:var(--muted-on-ink)">National rollout &amp; cross-portfolio merchandising.</div></div>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>Sequencing is illustrative, pre-development</span><span>12</span></div>
+  </section>
+
+  <!-- 13 THE ASK -->
+  <section class="s bg-cream" data-label="The ask">
+    <div class="topbar"><div class="section-num">12 — THE ASK</div><div class="mono" style="color:var(--muted-on-cream)">WHAT WE'RE LOOKING FOR</div></div>
+    <h2 class="title" style="margin:22px 0 30px;">What a partnership needs from you</h2>
+    <table class="tbl">
+      <thead><tr><th style="width:32%;">From the partner</th><th>What it unlocks</th></tr></thead>
+      <tbody>
+        <tr><td>Shelf &amp; slotting</td><td>Dual-aisle placement across your retail relationships.</td></tr>
+        <tr><td>Manufacturing</td><td>Capacity &amp; procurement to launch asset-light at scale.</td></tr>
+        <tr><td>Distribution</td><td>DSD &amp; logistics to reach doors fast.</td></tr>
+        <tr><td>Capital / commitment</td><td>Funding and a commercial commitment to launch <span class="tbd">terms TBD</span>.</td></tr>
+      </tbody>
+    </table>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-cream);padding-top:20px;margin-top:auto;"><span>In return: a first-mover format that's ownable within your portfolio</span><span>13</span></div>
+  </section>
+
+  <!-- 14 VISION & CONTACT -->
+  <section class="s bg-ink2" data-label="Vision">
+    <div class="topbar"><img class="mark" src="../assets/img/wordmark-light.png" alt="DRIPTEIN" style="height:50px;width:auto;"><div class="mono" style="color:var(--muted-on-ink)">13 — LET'S BUILD IT</div></div>
+    <div class="spread" style="justify-content:center;">
+      <div class="eyebrow">The opportunity</div>
+      <h2 class="display" style="margin:20px 0 26px;max-width:74%;">Own the pour<br>before anyone else does.</h2>
+      <p class="lead" style="max-width:52%;">DRIPTEIN is the format your protein and breakfast aisles are missing. Let's bring it to shelf together.</p>
+    </div>
+    <div class="pagefoot" style="border-top:2px solid var(--line-on-ink);padding-top:24px;"><span>admin@hyperius.site · Currently in development</span><span class="src" style="color:var(--syrup-lt)">Synergies illustrative</span></div>
+  </section>
+
+</deck-stage>
+
+<script src="../assets/deck-stage.js"></script>
+</body>
+</html>
